@@ -38,7 +38,11 @@
       <!-- Implementando essa parte -->
 
       <li class="nav-link" *ngIf="!usuario_admin">
-        <a [routerLink]="['/catalogo']">Catálogo</a>
+        <a [routerLink]="['/catalogo']">Loja Virtual</a>
+      </li>
+
+      <li class="nav-link" *ngIf="!usuario_admin">
+        <a [routerLink]="['/info']">Dúvidas</a>
       </li>
 
       <!-- Implementando essa parte -->
