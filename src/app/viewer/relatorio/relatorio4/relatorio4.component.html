@@ -1,0 +1,41 @@
+<br>
+
+<div class="row">
+
+  <!-- Tabela de Relatórios -->
+  <div class="container">
+    <div class="text-center">
+      <h4>Hemocentros com mais demandas atendidas</h4>
+    </div>
+    <br>
+
+    <div class="col-md-0">
+      <div class="card">
+
+        <table class="table table-hover table-striped">
+
+          <thead>
+            <tr>
+              <th>Hemocentro</th>
+              <th>Qtd demanda</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr *ngFor="let relatorio of relatorios">
+              <td>{{ relatorio.nome }}</td>
+              <td>{{ relatorio.nome }}</td>
+              <td>{{ relatorio.nome }}</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
