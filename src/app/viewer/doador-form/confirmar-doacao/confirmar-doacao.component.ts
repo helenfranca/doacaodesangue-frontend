@@ -1,20 +1,11 @@
-import { OnInit, TemplateRef, Component, Input } from "@angular/core";
-import {
-  HttpClient,
-  HttpHeaders,
-  HttpErrorResponse
-} from "@angular/common/http";
-import { map, catchError } from "rxjs/operators";
+import { OnInit, TemplateRef, Component } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
+import { map } from "rxjs/operators";
 import { Doador } from "src/app/model/doador";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 import { environment } from "src/environments/environment";
 import { Pessoa } from "src/app/model/pessoa";
-import { NgIf } from "@angular/common";
-import { Observable } from "rxjs";
-import { Doacao } from "src/app/model/doacao";
-import { MessageService } from "primeng/components/common/messageservice";
-import { Router } from "@angular/router";
 
 @Component({
   selector: "app-confirmar-doacao",

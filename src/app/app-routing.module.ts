@@ -21,6 +21,8 @@ import { ProdutosListaComponent } from "./viewer/admin-loja/produto/produtos-lis
 import { CadastroComponent } from "./viewer/cadastro/cadastro.component";
 import { HemoGuard } from "./viewer/guards/hemoGuard.guard";
 import { SistemaGuard } from "./viewer/guards/sistemaGuard.guard";
+import { usuarioComumComponent } from "./viewer/usuario/usuario-comum.component";
+import { hemocentroComponent } from "./viewer/hemocentro/hemocentro.component";
 
 const routes: Routes = [
   //Liberadas
@@ -35,6 +37,16 @@ const routes: Routes = [
   { path: "modal", component: TesteModalComponent },
 
   // Para usuários comuns
+  {
+    path: "usuario",
+    component: usuarioComumComponent,
+    canActivate: [AuthGuard]
+  },
+  {
+    path: "ondedoar",
+    component: hemocentroComponent,
+    canActivate: [AuthGuard]
+  },
   { path: "doador", component: DoadorFormComponent, canActivate: [AuthGuard] },
   {
     path: "produtos",

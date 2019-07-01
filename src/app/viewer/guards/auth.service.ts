@@ -58,7 +58,7 @@ export class AuthService {
     ) {
       window.location.href = "/sistema";
     } else {
-      window.location.href = "/";
+      window.location.href = "/usuario";
     }
   }
 

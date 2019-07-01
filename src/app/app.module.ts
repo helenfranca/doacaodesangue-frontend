@@ -33,6 +33,8 @@ import { RelatorioModule } from "./viewer/relatorio/relatorio.module";
 import { DadosEntregaFormComponent } from "./viewer/compra-de-produtos/dados-entrega-form/dados-entrega-form.component";
 import { MessageService } from "primeng/components/common/messageservice";
 import { ProdutosListaComponent } from "./viewer/admin-loja/produto/produtos-lista/produtos-lista.component";
+import { usuarioComumComponent } from "./viewer/usuario/usuario-comum.component";
+import { hemocentroComponent } from "./viewer/hemocentro/hemocentro.component";
 
 @NgModule({
   declarations: [
@@ -51,7 +53,9 @@ import { ProdutosListaComponent } from "./viewer/admin-loja/produto/produtos-lis
     AdminHemocentroComponent,
     AdminLojaComponent,
     DadosEntregaFormComponent,
-    ProdutosListaComponent
+    ProdutosListaComponent,
+    usuarioComumComponent,
+    hemocentroComponent
   ],
   imports: [
     NgbModule,
