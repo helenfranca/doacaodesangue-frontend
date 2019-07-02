@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   //API : 'http://localhost:3000/'
-  API : 'http://doacaosangue.herokuapp.com/'
+  API: "http://doacaodesangue.herokuapp.com/"
 };
 
 /*
