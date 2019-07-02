@@ -30,11 +30,29 @@ export class CatalogoProdutosService {
     return this.http.get<Material[]>(`${environment.API}` + "materiais");
   }
 
-  // Passando de uma maneira muito ruim, argumento pela url
-  // Prencher o banco e fazer as rotas de busca e filtro funcionar
   getProdutos(filtros?) {
-    return this.http.get<Produto[]>(`${environment.API}` + "produto", {
-      params: filtros
-    });
+    return this.http.get<Produto[]>(`${environment.API}` + "produto", { params: filtros });
   }
+
+  getProdutosBusca(filtros?) {
+    return this.http.get<Produto[]>(`${environment.API}` + "produto/busca", { params: filtros });
+  }
+
+  getRecomendacao() {
+    return this.http.get<Produto[]>(`${environment.API}` + "top3");
+  }
+
+  getCamisas() {
+    return this.http.get<Produto[]>(`${environment.API}` + "camisas");
+  }
+
+  getCanecas() {
+    return this.http.get<Produto[]>(`${environment.API}` + "canecas");
+  }
+
+  getBottons() {
+    return this.http.get<Produto[]>(`${environment.API}` + "bottons");
+  }
+
+
 }

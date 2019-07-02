@@ -18,7 +18,7 @@ export class PagamentoComponent implements AfterViewChecked {
   addScript: boolean = false;
   paypalLoad: boolean = true;
 
-  totalAmount: number;
+  totalAmount;
 
 
   endereco_cobranca: {};
