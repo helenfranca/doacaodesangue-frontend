@@ -42,8 +42,6 @@ export class CadastroComponent implements OnInit {
 
   cadastrar(cadastroForm) {
     //this.usuario = cadastroForm.value
-    console.log(this.usuario);
-    console.log(this.usuario.nome);
 
     //this.httpClient.post('https://doacao-de-sangue-helenfranca.c9users.io/pessoa', formulario.value)
     this.httpClient
@@ -51,10 +49,8 @@ export class CadastroComponent implements OnInit {
       .post(`${environment.API}` + "pessoa", cadastroForm.value)
       .pipe(map(res => res))
       .subscribe(dados => {
-        this.user = dados;
-
-        console.log(cadastroForm.value);
-        console.log('>>>>>>', cadastroForm.value.nome);
+        console.log(dados);
+        //this.user = dados;
 
         if (cadastroForm.value != null) {
           alert("Usuário cadastrado com sucesso!");
