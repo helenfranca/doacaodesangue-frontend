@@ -35,6 +35,10 @@ import { MessageService } from "primeng/components/common/messageservice";
 import { ProdutosListaComponent } from "./viewer/admin-loja/produto/produtos-lista/produtos-lista.component";
 import { usuarioComumComponent } from "./viewer/usuario/usuario-comum.component";
 import { hemocentroComponent } from "./viewer/hemocentro/hemocentro.component";
+import { AccordionModule } from "primeng/accordion";
+import { perfilComponent } from "./viewer/perfil/perfil.component";
+import { doacaoComponent } from "./viewer/doacao/doacao.component";
+import { comprasComponent } from "./viewer/compras/compras.component";
 
 @NgModule({
   declarations: [
@@ -55,7 +59,10 @@ import { hemocentroComponent } from "./viewer/hemocentro/hemocentro.component";
     DadosEntregaFormComponent,
     ProdutosListaComponent,
     usuarioComumComponent,
-    hemocentroComponent
+    hemocentroComponent,
+    perfilComponent,
+    doacaoComponent,
+    comprasComponent
   ],
   imports: [
     NgbModule,
@@ -70,7 +77,8 @@ import { hemocentroComponent } from "./viewer/hemocentro/hemocentro.component";
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     StorageServiceModule,
-    RelatorioModule
+    RelatorioModule,
+    AccordionModule
   ],
   providers: [
     AuthService,

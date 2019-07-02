@@ -1,62 +1,66 @@
 <!-- <div class="container"> -->
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
-  <div class="bg-light border-right" id="sidebar-wrapper">
-    <!-- <div class="sidebar-heading">Meu teste</div> -->
-    <div class="list-group list-group-flush">
-      <a
-        [routerLink]=""
-        (click)="opcao = 0"
-        class="list-group-item list-group-item-action bg-light"
-        >Meu perfil</a
-      >
-      <a
-        [routerLink]=""
-        (click)="opcao = 1"
-        class="list-group-item list-group-item-action bg-light"
-        >Minhas Doações</a
-      >
 
-      <a
-        [routerLink]=""
-        (click)="opcao = 2"
-        class="list-group-item list-group-item-action bg-light"
-        >Quero doar sangue</a
-      >
-      <a
-        [routerLink]=""
-        (click)="opcao = 4"
-        class="list-group-item list-group-item-action bg-light"
-        >Onde posso doar?</a
-      >
-
-      <a
-        [routerLink]=""
-        (click)="opcao = 5"
-        class="list-group-item list-group-item-action bg-light"
-        >Loja Virtual</a
-      >
-      <a
-        [routerLink]=""
-        (click)="opcao = 3"
-        class="list-group-item list-group-item-action bg-light"
-        >Minhas Compras</a
-      >
-    </div>
-  </div>
   <!-- /#sidebar-wrapper -->
 
   <!-- Page Content -->
   <div id="page-content-wrapper">
     <!-- aqui tinha um navbar -->
     <div class="container-fluid">
-      <app-catalogo-produtos *ngIf="opcao == 5"></app-catalogo-produtos>
       <!-- <app-confirmar-doacao *ngIf="opcao == 1"></app-confirmar-doacao> -->
       <!-- Página de dentro, onde vão aparecer as informações : CONTEUDO DA PAGINA-->
+      <!-- </div> -->
+
+      <table class="table">
+        <thead>
+          <tr class="bg-warning">
+            <th scope="col">#</th>
+            <th scope="col">Hemocentro</th>
+            <th scope="col">CNES</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefone</th>
+            <th scope="col">Endereço</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr
+            class="table-warning"
+            *ngFor="let hemocentro of hemocentros; let i = index"
+          >
+            <th scope="row">
+              {{ i }}
+            </th>
+            <td>{{ hemocentro.nome }}</td>
+            <td>{{ hemocentro.cnes }}</td>
+            <td>{{ hemocentro.email }}</td>
+            <td>{{ hemocentro.telefone }}</td>
+            <!-- <p-accordion header="Mostrar" (click)="exibir = true; op = i"> -->
+
+            <td>
+              <li style="list-style-type:none">
+                Cep: {{ hemocentro.endereco.cep }}
+              </li>
+              <li style="list-style-type:none">
+                Bairro: {{ hemocentro.endereco.bairro.nome }}
+              </li>
+              <li style="list-style-type:none">
+                Município: {{ hemocentro.endereco.bairro.municipio.nome }}
+              </li>
+              <li style="list-style-type:none">
+                Nº:{{ hemocentro.endereco.numero }}
+              </li>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- </div> -->
+      <!-- /#page-content-wrapper -->
     </div>
   </div>
-  <!-- /#page-content-wrapper -->
-</div>
 
-<!-- /#wrapper -->
-<!-- </div> -->
+  <!-- /#wrapper -->
+  <!-- </div> -->
+</div>

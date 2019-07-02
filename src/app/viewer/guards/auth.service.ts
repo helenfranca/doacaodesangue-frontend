@@ -26,6 +26,7 @@ export class AuthService {
       dt.setHours(dt.getHours() + 1)
     );
     this.cookieService.set("tempo_sessao", resposta.expires_in);
+    this.cookieService.set("id", resposta.user_id.id);
     this.cookieService.set("nome", resposta.user_id.nome);
     this.cookieService.set("sobrenome", resposta.user_id.sobrenome);
     this.cookieService.set("datanascimento", resposta.user_id.datanascimento);

@@ -4,14 +4,15 @@
   <div class="bg-light border-right" id="sidebar-wrapper">
     <!-- <div class="sidebar-heading">Meu teste</div> -->
     <div class="list-group list-group-flush">
-      <a
+      <!-- <a
         [routerLink]=""
         (click)="opcao = 0"
         class="list-group-item list-group-item-action bg-light"
         >Meu perfil</a
-      >
+      > -->
       <a
         [routerLink]=""
+        *ngIf="doador"
         (click)="opcao = 1"
         class="list-group-item list-group-item-action bg-light"
         >Minhas Doações</a
@@ -19,9 +20,10 @@
 
       <a
         [routerLink]=""
+        *ngIf="!doador"
         (click)="opcao = 2"
         class="list-group-item list-group-item-action bg-light"
-        >Quero doar sangue</a
+        >Quero me tornar um doador</a
       >
       <a
         [routerLink]=""
@@ -29,7 +31,13 @@
         class="list-group-item list-group-item-action bg-light"
         >Onde posso doar?</a
       >
-
+      <a
+        [routerLink]=""
+        (click)="opcao = 6"
+        class="list-group-item list-group-item-action bg-light"
+        >Dúvidas</a
+      >
+      <br /><br /><br />
       <a
         [routerLink]=""
         (click)="opcao = 5"
@@ -50,8 +58,13 @@
   <div id="page-content-wrapper">
     <!-- aqui tinha um navbar -->
     <div class="container-fluid">
+      <!-- <app-perfil *ngIf="opcao == 0"></app-perfil> -->
+      <app-doacao *ngIf="opcao == 1"></app-doacao>
+      <app-doador-form *ngIf="opcao == 2"></app-doador-form>
+      <app-compras *ngIf="opcao == 3"></app-compras>
       <app-hemocentro *ngIf="opcao == 4"></app-hemocentro>
       <app-catalogo-produtos *ngIf="opcao == 5"></app-catalogo-produtos>
+      <app-ajuda-page *ngIf="opcao == 6"></app-ajuda-page>
 
       <!-- <app-confirmar-doacao *ngIf="opcao == 1"></app-confirmar-doacao> -->
       <!-- Página de dentro, onde vão aparecer as informações : CONTEUDO DA PAGINA-->

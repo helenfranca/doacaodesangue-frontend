@@ -19,7 +19,7 @@ export class hemocentroComponent implements OnInit {
       .get<Hemocentro>(`${environment.API}` + "hemocentro")
       .subscribe(val => {
         //Caso ok
-        this.hemocentros = console.log(val);
+        this.hemocentros = val;
       });
   }
 }
