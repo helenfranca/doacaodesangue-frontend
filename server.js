@@ -8,7 +8,7 @@ app.get("/*", (req, res) => {
   res.sendFile(
     path.join(__dirname + "/dist/doacaodesangue-frontend/index.html")
   );
-  console.log(__dirname);
+  console.log("caminho:", __dirname);
 });
 
 app.listen(process.env.PORT || 8080);
