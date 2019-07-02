@@ -20,6 +20,25 @@
         class="list-group-item list-group-item-action bg-light"
         >Relatório</a
       >
+
+      <a 
+      *ngIf="opcao == 2"
+      (click)="opcao = 3"
+      class="list-group-item list-group-item-action bg-light"
+      >Demandas por hemocentro</a
+      >
+      <a 
+      *ngIf="opcao == 2"
+      (click)="opcao = 4"
+      class="list-group-item list-group-item-action bg-light"
+      >Qtd de doadores</a
+      >
+      <a 
+      *ngIf="opcao == 2"
+      (click)="opcao = 5"
+      class="list-group-item list-group-item-action bg-light"
+      >Qtd de demandas</a
+      >
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
@@ -29,6 +48,9 @@
     <!-- aqui tinha um navbar -->
     <div class="container-fluid">
       <app-produtos-lista *ngIf="opcao == 0"></app-produtos-lista>
+      <app-relatorio1 *ngIf="opcao == 3"></app-relatorio1>
+      <app-relatorio2 *ngIf="opcao == 4"></app-relatorio2>
+      <app-relatorio3 *ngIf="opcao == 5"></app-relatorio3>
       <!-- <app-confirmar-doacao *ngIf="opcao == 1"></app-confirmar-doacao> -->
       <!-- Página de dentro, onde vão aparecer as informações : CONTEUDO DA PAGINA-->
     </div>

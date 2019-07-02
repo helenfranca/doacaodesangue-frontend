@@ -9,6 +9,8 @@ import { environment } from "src/environments/environment";
   styleUrls: ["./cadastro.component.css"]
 })
 export class CadastroComponent implements OnInit {
+
+  // Pega no html
   usuario: any = {
     nome: null,
     sobrenome: null,
@@ -20,6 +22,8 @@ export class CadastroComponent implements OnInit {
     senha: null,
     confirmarSenha: null
   };
+
+  // Pega no http post
   user: any = {
     nome: null,
     sobrenome: null,
@@ -32,23 +36,29 @@ export class CadastroComponent implements OnInit {
     confirmarSenha: null
   };
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
-  onSubmit() {
+  cadastrar(cadastroForm) {
+    //this.usuario = cadastroForm.value
     console.log(this.usuario);
+    console.log(this.usuario.nome);
 
     //this.httpClient.post('https://doacao-de-sangue-helenfranca.c9users.io/pessoa', formulario.value)
     this.httpClient
-      .post(`${environment.API}` + "pessoa", this.usuario)
+      //.post(`${environment.API}` + "pessoa", this.usuario)
+      .post(`${environment.API}` + "pessoa", cadastroForm.value)
       .pipe(map(res => res))
       .subscribe(dados => {
         this.user = dados;
 
-        if (this.user != null) {
-          alert("Usuário já cadastrado!");
-          window.location.href = "/login";
+        console.log(cadastroForm.value);
+        console.log('>>>>>>', cadastroForm.value.nome);
+
+        if (cadastroForm.value != null) {
+          alert("Usuário cadastrado com sucesso!");
+          //window.location.href = "/login";
         }
       });
   }

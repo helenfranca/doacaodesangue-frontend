@@ -23,4 +23,17 @@ export class LoginComponent implements OnInit {
   logar() {
     this.authService.autenticacao(this.usuario);
   }
+
+  /*
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: "modal-sm" });
+  }
+
+  confirm(): void {
+    this.message = "Confirmed!";
+    this.modalRef.hide();
+  }
+  */
+
+
 }

@@ -10,11 +10,6 @@ import { RelatorioRoutingModule } from './relatorio.routing.module';
 
 @NgModule({
   declarations: [
-    RelatorioComponent,
-    Relatorio1Component,
-    Relatorio2Component,
-    Relatorio3Component,
-    Relatorio4Component
   ],
   imports: [
     CommonModule,
