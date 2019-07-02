@@ -12,7 +12,7 @@ export class Relatorio3Service {
   constructor(private http: HttpClient) {}
 
   list() {
-    return this.http.get<Relatorio3[]>(`${environment.API}` + "demandas").pipe(
+    return this.http.get<Relatorio3[]>(`${environment.API}` + "demanda").pipe(
       tap(console.log) //para debugar, ver os erros
     );
   }

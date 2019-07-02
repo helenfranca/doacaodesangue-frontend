@@ -8,6 +8,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { CookieService } from "ngx-cookie-service";
 import { StorageServiceModule } from "angular-webstorage-service";
+import { BsDropdownModule } from "ngx-bootstrap/dropdown";
+
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CatalogoProdutosComponent } from "./viewer/compra-de-produtos/catalogo-produtos/catalogo-produtos.component";
@@ -39,6 +41,12 @@ import { AccordionModule } from "primeng/accordion";
 import { perfilComponent } from "./viewer/perfil/perfil.component";
 import { doacaoComponent } from "./viewer/doacao/doacao.component";
 import { comprasComponent } from "./viewer/compras/compras.component";
+import { RelatorioComponent } from "./viewer/relatorio/relatorio.component";
+import { Relatorio1Component } from "./viewer/relatorio/relatorio1/relatorio1.component";
+import { Relatorio2Component } from "./viewer/relatorio/relatorio2/relatorio2.component";
+import { Relatorio3Component } from "./viewer/relatorio/relatorio3/relatorio3.component";
+import { Relatorio4Component } from "./viewer/relatorio/relatorio4/relatorio4.component";
+import { LoginComponent } from "./viewer/login/login.component";
 
 @NgModule({
   declarations: [
@@ -62,7 +70,13 @@ import { comprasComponent } from "./viewer/compras/compras.component";
     hemocentroComponent,
     perfilComponent,
     doacaoComponent,
-    comprasComponent
+    comprasComponent,
+    RelatorioComponent,
+    Relatorio1Component,
+    Relatorio2Component,
+    Relatorio3Component,
+    Relatorio4Component,
+    LoginComponent
   ],
   imports: [
     NgbModule,
@@ -78,7 +92,7 @@ import { comprasComponent } from "./viewer/compras/compras.component";
     CarouselModule.forRoot(),
     StorageServiceModule,
     RelatorioModule,
-    AccordionModule
+    BsDropdownModule.forRoot()
   ],
   providers: [
     AuthService,

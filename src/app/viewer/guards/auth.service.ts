@@ -1,3 +1,4 @@
+import { LoginComponent } from './../login/login.component';
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
@@ -15,6 +16,7 @@ export class AuthService {
     private router: Router,
     private http: HttpClient,
     private cookieService: CookieService
+    //,private loginComponent: LoginComponent
   ) {}
 
   salvaCookie(resposta) {
@@ -43,6 +45,9 @@ export class AuthService {
 
   login(resposta) {
     console.log(resposta);
+    if (resposta.status == 404) {
+      alert('Login incorreto');
+    }
     this.salvaCookie(resposta);
     this.usuarioAutenticado = true;
 
