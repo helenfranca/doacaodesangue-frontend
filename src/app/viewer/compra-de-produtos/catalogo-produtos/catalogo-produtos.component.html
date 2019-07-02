@@ -22,7 +22,8 @@
   <div *ngFor="let item of recomendacao">
 
     <slide>
-      
+      <img src="https://www.weinmann.com.br/Style%20Library/img/banner_blood-donation.jpg" alt="first slide"
+        style="display: block; width: 100%;" />
       <div class="carousel-caption d-none d-md-block">
         <h3>{{ item.produto.nome }}</h3>
         <img src="{{ item.imagem.url }}" alt="first slide"
@@ -82,7 +83,7 @@
               <li class="filter-list">
                 <input class="pixel-checkbox" type="checkbox" [(ngModel)]="campoGenero[i]"
                   (change)="getGenero(genero.nome)">
-                {{genero.nome}}
+                {{genero.genero}}
               </li>
             </ul>
 
@@ -92,7 +93,7 @@
               <li class="filter-list">
                 <input class="pixel-checkbox" type="checkbox" [(ngModel)]="campoMaterial[i]"
                   (change)="getMaterial(material.nome)">
-                {{material.nome}}
+                {{material.material}}
               </li>
             </ul>
 
@@ -102,7 +103,7 @@
               <li class="filter-list">
                 <input class="pixel-checkbox" type="checkbox" [(ngModel)]="campoTamanho[i]"
                   (change)="getTamanho(tamanho.nome)">
-                {{tamanho.nome}}
+                {{tamanho.tamanho}}
               </li>
             </ul>
 
