@@ -1,6 +1,10 @@
+body {
+  background-color: darkred;
+}
 div {
-  border: 70px solid white;
-  padding: 15px;
+  border: 70px solid darkred;
+  background-color: darkred;
+  padding: 0px;
   text-align: justify;
   text-justify: inter-word;
 }
@@ -8,7 +12,7 @@ div {
 h3 {
   text-align: center;
   text-transform: uppercase;
-  color: #4CAF50;
+  color: #4caf50;
 }
 
 p {
@@ -18,5 +22,5 @@ p {
 
 a {
   text-decoration: none;
-  color: #008CBA;
+  color: #008cba;
 }

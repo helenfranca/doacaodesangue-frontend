@@ -4,13 +4,16 @@
 </head>
 -->
 
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <a class="navbar-brand text-danger" *ngIf="usuario_admin" [routerLink]="['/']"
+<nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <a
+    class="navbar-brand text-danger"
+    *ngIf="usuario_admin || !user"
+    [routerLink]="['/']"
     >Tuntum</a
   >
   <a
     class="navbar-brand text-danger"
-    *ngIf="!usuario_admin"
+    *ngIf="!usuario_admin && user"
     [routerLink]="['/usuario']"
     >Tuntum</a
   >
@@ -27,13 +30,13 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto text-danger">
       <li class="nav-link">
         <a *ngIf="usuario_hemocentro && usuario_admin">{{
           usuario_hemocentro
         }}</a>
       </li>
-      <li class="nav-link">
+      <li class="nav-link text-danger">
         <a *ngIf="usuario_nome != ''"> Bem vindo(a), {{ usuario_nome }} </a>
       </li>
     </ul>
@@ -41,10 +44,10 @@
 
     <!-- Nome do usuário logado -->
 
-    <li class="nav-link" *ngIf="!usuario_admin && !user">
+    <li class="nav-link text-danger" *ngIf="!usuario_admin && !user">
       <a [routerLink]="['/info']">Dúvidas</a>
     </li>
-    <li class="nav-link" *ngIf="!usuario_admin">
+    <li class="nav-link text-danger" *ngIf="!usuario_admin">
       <a [routerLink]="['/catalogo']">Loja Virtual</a>
     </li>
 
@@ -55,19 +58,19 @@
       src="https://raw.githubusercontent.com/malufreitas/doacao-sangue-front-end/devMalu/images/carrinhoCompras.png"
       width="30"
       height="30"
-      class="text-right"
+      class="text-right text-danger"
     />
     <!-- carrinho -->
 
     <!-- Nome do usuário -->
 
     <!-- Implementando essa parte -->
-    <li class="nav-link" *ngIf="!user">
+    <li class="nav-link text-danger" *ngIf="!user">
       <a [routerLink]="['/login']">Login</a>
     </li>
 
     <!-- Logout -->
-    <li class="nav-link" *ngIf="user">
+    <li class="nav-link text-danger" *ngIf="user">
       <a [routerLink]="" (click)="logout()">Sair</a>
     </li>
 
