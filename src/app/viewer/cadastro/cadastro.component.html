@@ -33,7 +33,8 @@
       <div class="form-group col-md-3">
         <label for="datanascimento">Data de Nascimento</label>
         <input type="text" class="form-control" name="datanascimento" id="datanascimento" placeholder="dd/mm/aaaa"
-        [(ngModel)]="usuario.datanascimento" required #datanascimento="ngModel">
+        [(ngModel)]="usuario.datanascimento" required #datanascimento="ngModel"
+        mask="00/00/0000">
 
         <div *ngIf="!datanascimento.valid && datanascimento.touched" class="text-danger">
           Data de Nascimento é obrigatório.
@@ -56,7 +57,8 @@
       <div class="form-group col-md-3">
         <label for="cpf">CPF</label>
         <input type="text" class="form-control" name="cpf" id="cpf" placeholder="Digite apenas os números"
-        [(ngModel)]="usuario.cpf" required #cpf="ngModel">
+        [(ngModel)]="usuario.cpf" required #cpf="ngModel"
+        mask="000.000.000-00">
 
         <div *ngIf="!cpf.valid && cpf.touched" class="text-danger">
           CPF é obrigatório.
@@ -66,7 +68,8 @@
       <div class="form-group col-md-3">
         <label for="telefone">Telefone</label>
         <input type="text" class="form-control" name="telefone" id="telefone" placeholder="Digite apenas os números"
-        [(ngModel)]="usuario.telefone" required #telefone="ngModel">
+        [(ngModel)]="usuario.telefone" required #telefone="ngModel"
+        mask="(00)0-0000-0000">
 
         <div *ngIf="!telefone.valid && telefone.touched" class="text-danger">
           Telefone é obrigatório.

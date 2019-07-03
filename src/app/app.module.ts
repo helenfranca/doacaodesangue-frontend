@@ -41,6 +41,7 @@ import { Relatorio2Component } from './viewer/relatorio/relatorio2/relatorio2.co
 import { Relatorio3Component } from './viewer/relatorio/relatorio3/relatorio3.component';
 import { Relatorio4Component } from './viewer/relatorio/relatorio4/relatorio4.component';
 import { LoginComponent } from './viewer/login/login.component';
+import {NgxMaskModule} from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -82,6 +83,7 @@ import { LoginComponent } from './viewer/login/login.component';
     StorageServiceModule,
     RelatorioModule,
     BsDropdownModule.forRoot(),
+    NgxMaskModule.forRoot({})
   ],
   providers: [
     AuthService,
