@@ -11,31 +11,37 @@ import { CookieService } from "ngx-cookie-service";
 export class usuarioComumComponent implements OnInit {
   constructor(private http: HttpClient, private cookieService: CookieService) {}
   pessoa: any;
-  doador = false;
+  doador: any;
   a: any;
   b: any;
   cpf: any;
+  erro: any;
   ngOnInit() {
-    if (
-      this.cookieService.get("cpf").search(".") ||
-      this.cookieService.get("cpf").search("-")
-    ) {
-      this.a = this.cookieService.get("cpf").split("-");
-      this.b = this.a[0].split(".");
-      this.cpf = this.b.concat(this.a[1]).join("");
-    }
-
+    // if (
+    //   this.cookieService.get("cpf").search(".") ||
+    //   this.cookieService.get("cpf").search("-")
+    // ) {
+    //   this.a = this.cookieService.get("cpf").split("-");
+    //   this.b = this.a[0].split(".");
+    //   this.cpf = this.b.concat(this.a[1]).join("");
+    // }
+    this.cpf = this.cookieService.get("cpf");
     this.http
       .get<any>(`${environment.API}` + "pessoa/doador/" + this.cpf)
       .subscribe(
         val => {
           this.pessoa = val;
           if (this.pessoa.apto) {
-            this.doador = true;
+            this.doador = 200;
           }
         },
         error => {
-          error = error;
+          this.erro = error;
+
+          if (this.erro.status == 404) {
+            console.log(this.erro.status);
+            this.doador = 404;
+          }
         }
       );
   }
