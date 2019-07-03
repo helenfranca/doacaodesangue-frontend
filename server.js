@@ -2,12 +2,13 @@ const express = require("express");
 const path = require("path");
 const app = express();
 
-app.use(express.static(__dirname + "/dist/doacao-sangue-front-end"));
+app.use(express.static(__dirname + "/dist/doacaodesangue-frontend"));
 
-app.get("/*", function(req, res) {
+app.get("/*", (req, res) => {
   res.sendFile(
-    path.join(__dirname + "/dist/doacao-sangue-front-end/index.html")
+    path.join(__dirname + "/dist/doacaodesangue-frontend/index.html")
   );
+  console.log("caminho:", __dirname);
 });
 
 app.listen(process.env.PORT || 8080);

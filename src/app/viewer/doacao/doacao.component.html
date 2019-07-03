@@ -1,0 +1,52 @@
+<!-- <div class="container"> -->
+<div class="d-flex" id="wrapper">
+  <!-- Sidebar -->
+
+  <!-- /#sidebar-wrapper -->
+
+  <!-- Page Content -->
+  <div id="page-content-wrapper">
+    <!-- aqui tinha um navbar -->
+    <div class="container-fluid">
+      <!-- <app-confirmar-doacao *ngIf="opcao == 1"></app-confirmar-doacao> -->
+      <!-- Página de dentro, onde vão aparecer as informações : CONTEUDO DA PAGINA-->
+      <!-- </div> -->
+
+      <table class="table" *ngIf="ret === true">
+        <thead>
+          <tr class="bg-warning">
+            <th scope="col">#</th>
+            <th scope="col">Hemocentro</th>
+            <th scope="col">Data da doação</th>
+            <th scope="col">Quantidade doada - ml</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr class="table-warning" *ngFor="let item of retorno; let i = index">
+            <th scope="row">
+              {{ i }}
+            </th>
+            <td>{{ item.nome }}</td>
+            <td>{{ item.datadoacao }}</td>
+            <td>{{ item.quantidade }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- </div> -->
+      <!-- /#page-content-wrapper -->
+    </div>
+    <span>
+      <h6 *ngIf="ret === false" style="align-self: center">
+        {{ ret }}
+        "Você ainda não fez nenhuma doação! <br />
+        Fique atento ao seu email. A qualquer momento você terá a chance de ser
+        um herói!"
+      </h6></span
+    >
+  </div>
+
+  <!-- /#wrapper -->
+  <!-- </div> -->
+</div>
