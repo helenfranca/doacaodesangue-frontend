@@ -18,10 +18,13 @@ export class ProdutosListaService {
     );
   }
 
-  salvarProdutos(formulario) {
-    this.http
-      .post(`${environment.API}` + "produto", formulario.value)
+  salvarProdutos(produto) {
+    console.log(produto);
+
+    return this.http
+      .post(`${environment.API}` + "produto", produto)
       .pipe(map(res => res))
-      .subscribe(dados => console.log(dados));
-  }
+      .subscribe(dados => console.log(dados));  
+    }
+
 }
