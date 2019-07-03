@@ -1,7 +1,7 @@
 import { Component, OnInit, TemplateRef } from "@angular/core";
 import { Observable, empty, Subject } from "rxjs";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
-import { catchError, map } from "rxjs/operators";
+import { catchError, map, take } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 
 import { environment } from "src/environments/environment";
@@ -141,10 +141,11 @@ export class ProdutosListaComponent implements OnInit {
   removerProduto(produto) {
     console.log(produto)
     this.http
-      .delete(`${environment.API}` + "produto", produto)
-      .pipe(map(res => res))
+      .put(`${environment.API}` + "produto", produto)
+      .pipe(take(1))
       .subscribe(dados => console.log('no subscribe >', dados));
   }
+
 
   resetaObjetoProduto() {
     this.produto = {

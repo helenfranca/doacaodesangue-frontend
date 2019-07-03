@@ -47,6 +47,7 @@ import { Relatorio2Component } from "./viewer/relatorio/relatorio2/relatorio2.co
 import { Relatorio3Component } from "./viewer/relatorio/relatorio3/relatorio3.component";
 import { Relatorio4Component } from "./viewer/relatorio/relatorio4/relatorio4.component";
 import { LoginComponent } from "./viewer/login/login.component";
+import { GerenciaHemocentrosComponent } from './viewer/admin-loja/gerencia-hemocentros/gerencia-hemocentros.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +77,8 @@ import { LoginComponent } from "./viewer/login/login.component";
     Relatorio2Component,
     Relatorio3Component,
     Relatorio4Component,
-    LoginComponent
+    LoginComponent,
+    GerenciaHemocentrosComponent
   ],
   imports: [
     NgbModule,
