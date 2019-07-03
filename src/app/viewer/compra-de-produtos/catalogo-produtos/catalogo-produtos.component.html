@@ -26,8 +26,7 @@
         style="display: block; width: 100%;" />
       <div class="carousel-caption d-none d-md-block">
         <h3>{{ item.produto.nome }}</h3>
-        <img src="{{ item.imagem.url }}" alt="first slide"
-          style="display: center; width: 10%;" />
+        <img src="{{ item.imagem.url }}" alt="first slide" style="display: center; width: 10%;" />
         <h5>{{ item.porcentagem | number:'1.0-0' }}% dos clientes compraram esse produto</h5>
       </div>
     </slide>
@@ -122,14 +121,14 @@
         <div class="filter-bar d-flex flex-wrap align-items-center bg-white">
 
           <!-- Ordenação dos produtos 
-            <div class="sorting">
-              <select (change)="ordenaProdutos($event.target.value)">
-                <option value="0">Ordenação Padrão</option>
-                <option value="1">Ordem Alfabetica</option>
-                <option value="2">Mais Recente</option>
-              </select>
-            </div>
-            -->
+              <div class="sorting">
+                <select (change)="ordenaProdutos($event.target.value)">
+                  <option value="0">Ordenação Padrão</option>
+                  <option value="1">Ordem Alfabetica</option>
+                  <option value="2">Mais Recente</option>
+                </select>
+              </div>
+              -->
 
           <!-- Limpar filtros selecionados -->
           <div class="sorting mr-auto">

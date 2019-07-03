@@ -49,4 +49,15 @@ export class CatalogoProdutosService {
     return this.http.get<Produto[]>(`${environment.API}top3`);
   }
 
+  getCamisas() {
+    return this.http.get<Produto[]>(`${environment.API}camisas`);
+  }
+  
+  getCanecas() {
+    return this.http.get<Produto[]>(`${environment.API}canecas`);
+  }
+
+  getBottons() {
+    return this.http.get<Produto[]>(`${environment.API}bottons`);
+  }
 }

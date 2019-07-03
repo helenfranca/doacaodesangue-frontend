@@ -100,6 +100,10 @@ export class CatalogoProdutosComponent implements OnInit {
       })
   }
 
+  pegaCamisas() {
+    // implementar
+  }
+
   
 
 
@@ -169,6 +173,9 @@ export class CatalogoProdutosComponent implements OnInit {
     this.pegaProduto();
   }
 
+  getCamisa() {
+
+  }
   
   addCart(Product){
     //console.log(Product);
