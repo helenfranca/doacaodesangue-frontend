@@ -1,5 +1,6 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, TemplateRef } from "@angular/core";
 import { AuthService } from "../guards/auth.service";
+import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 @Component({
   selector: "app-login",
@@ -12,7 +13,13 @@ export class LoginComponent implements OnInit {
     senha: null
   };
 
-  constructor(private authService: AuthService) {}
+  modalRef: BsModalRef;
+  message: string;
+
+  constructor(
+    private authService: AuthService, 
+    private modalService: BsModalService
+    ) {}
 
   ngOnInit() {}
 
@@ -23,4 +30,15 @@ export class LoginComponent implements OnInit {
   logar() {
     this.authService.autenticacao(this.usuario);
   }
+
+  
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template, { class: "modal-sm" });
+  }
+
+  ok(): void {
+    this.modalRef.hide();
+  }
+
+
 }

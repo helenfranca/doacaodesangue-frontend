@@ -8,6 +8,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { ModalModule } from "ngx-bootstrap/modal";
 import { CookieService } from "ngx-cookie-service";
 import { StorageServiceModule } from "angular-webstorage-service";
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CatalogoProdutosComponent } from "./viewer/compra-de-produtos/catalogo-produtos/catalogo-produtos.component";
@@ -33,6 +35,12 @@ import { RelatorioModule } from "./viewer/relatorio/relatorio.module";
 import { DadosEntregaFormComponent } from "./viewer/compra-de-produtos/dados-entrega-form/dados-entrega-form.component";
 import { MessageService } from "primeng/components/common/messageservice";
 import { ProdutosListaComponent } from "./viewer/admin-loja/produto/produtos-lista/produtos-lista.component";
+import { RelatorioComponent } from './viewer/relatorio/relatorio.component';
+import { Relatorio1Component } from './viewer/relatorio/relatorio1/relatorio1.component';
+import { Relatorio2Component } from './viewer/relatorio/relatorio2/relatorio2.component';
+import { Relatorio3Component } from './viewer/relatorio/relatorio3/relatorio3.component';
+import { Relatorio4Component } from './viewer/relatorio/relatorio4/relatorio4.component';
+import { LoginComponent } from './viewer/login/login.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +59,13 @@ import { ProdutosListaComponent } from "./viewer/admin-loja/produto/produtos-lis
     AdminHemocentroComponent,
     AdminLojaComponent,
     DadosEntregaFormComponent,
-    ProdutosListaComponent
+    ProdutosListaComponent,
+    RelatorioComponent,
+    Relatorio1Component,
+    Relatorio2Component,
+    Relatorio3Component,
+    Relatorio4Component,
+    LoginComponent
   ],
   imports: [
     NgbModule,
@@ -66,7 +80,8 @@ import { ProdutosListaComponent } from "./viewer/admin-loja/produto/produtos-lis
     BrowserAnimationsModule,
     CarouselModule.forRoot(),
     StorageServiceModule,
-    RelatorioModule
+    RelatorioModule,
+    BsDropdownModule.forRoot(),
   ],
   providers: [
     AuthService,

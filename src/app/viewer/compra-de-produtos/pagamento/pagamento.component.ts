@@ -18,7 +18,7 @@ export class PagamentoComponent implements AfterViewChecked {
   addScript: boolean = false;
   paypalLoad: boolean = true;
 
-  totalAmount: number;
+  totalAmount;
 
 
   endereco_cobranca: {};
@@ -71,6 +71,7 @@ export class PagamentoComponent implements AfterViewChecked {
       return actions.payment.execute().then((payment) => {
         //Do something when payment is successful.
         window.alert('Pagamento efetuado!');
+        window.location.href = "/finalizacompra";
 
         this.endereco_cobranca = {
           'rua': payment.payer.payer_info.shipping_address.line1,
