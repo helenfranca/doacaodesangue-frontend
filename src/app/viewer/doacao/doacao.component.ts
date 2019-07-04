@@ -10,7 +10,7 @@ import { Doacao } from "src/app/model/doacao";
   styleUrls: ["./doacao.component.css"]
 })
 export class doacaoComponent implements OnInit {
-  constructor(private cookieService: CookieService, private http: HttpClient) {}
+  constructor(private cookieService: CookieService, private http: HttpClient) { }
   // moment = require("moment");
   // moment().format();
 
@@ -30,19 +30,23 @@ export class doacaoComponent implements OnInit {
     // this.cpf = this.cookieService.get("cpf");
     // this.moment.format();
 
-    if (
-      this.cookieService.get("cpf").search(".") ||
-      this.cookieService.get("cpf").search("-")
-    ) {
-      this.a = this.cookieService.get("cpf").split("-");
-      this.b = this.a[0].split(".");
-      this.cpf = this.b.concat(this.a[1]).join("");
-    }
-
+    // if (
+    //   this.cookieService.get("cpf").search(".") ||
+    //   this.cookieService.get("cpf").search("-")
+    // ) {
+    //   this.a = this.cookieService.get("cpf").split("-");
+    //   this.b = this.a[0].split(".");
+    //   this.cpf = this.b.concat(this.a[1]).join("");
+    // }
+    this.cpf = this.cookieService.get("cpf");
     this.http.get(`${environment.API}` + "doacao/pessoa/" + this.cpf).subscribe(
       val => {
-        this.retorno = val;
-        this.ret = true;
+        if (val == "[]") {
+          this.ret = false;
+        } else {
+          this.ret = true;
+          this.retorno = val;
+        }
       },
       error => {
         error = error;

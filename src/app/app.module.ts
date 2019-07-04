@@ -103,8 +103,9 @@ import { GerenciaHemocentrosComponent } from './viewer/admin-loja/gerencia-hemoc
     MessageService,
     CookieService,
     CarrinhoDeComprasComponent
+
   ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmarDoacaoComponent]
 })
-export class AppModule {}
+export class AppModule { }

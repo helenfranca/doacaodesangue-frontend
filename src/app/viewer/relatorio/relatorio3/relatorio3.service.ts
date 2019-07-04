@@ -9,7 +9,7 @@ import { tap } from "rxjs/operators";
   providedIn: "root"
 })
 export class Relatorio3Service {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   list() {
     return this.http.get<Relatorio3[]>(`${environment.API}` + "demanda").pipe(
