@@ -49,7 +49,7 @@ export class CadastroComponent implements OnInit {
       .post(`${environment.API}` + "pessoa", cadastroForm.value)
       .pipe(map(res => res))
       .subscribe(dados => {
-        console.log(dados);
+        console.log('no subscribe > ', dados);
         //this.user = dados;
 
         if (cadastroForm.value != null) {

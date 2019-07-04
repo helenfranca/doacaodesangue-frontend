@@ -6,6 +6,8 @@ import { Categoria } from 'src/app/model/categoria';
 import { Genero } from 'src/app/model/genero';
 import { Produto } from 'src/app/model/produto';
 import { tap, delay, map } from 'rxjs/operators';
+import { Material } from 'src/app/model/material';
+import { Tamanho } from 'src/app/model/tamanho';
 
 
 @Injectable({
@@ -30,11 +32,11 @@ export class CatalogoProdutosService {
   }
 
   getTamanhos() {
-    return this.http.get<Genero[]>(`${environment.API}tamanhos`)
+    return this.http.get<Tamanho[]>(`${environment.API}tamanhos`)
   }
 
   getMateriais() {
-    return this.http.get<Genero[]>(`${environment.API}materiais`)
+    return this.http.get<Material[]>(`${environment.API}materiais`)
   }
 
   getProdutos(filtros?) {
@@ -49,4 +51,15 @@ export class CatalogoProdutosService {
     return this.http.get<Produto[]>(`${environment.API}top3`);
   }
 
+  getCamisas() {
+    return this.http.get<Produto[]>(`${environment.API}camisas`);
+  }
+  
+  getCanecas() {
+    return this.http.get<Produto[]>(`${environment.API}canecas`);
+  }
+
+  getBottons() {
+    return this.http.get<Produto[]>(`${environment.API}bottons`);
+  }
 }

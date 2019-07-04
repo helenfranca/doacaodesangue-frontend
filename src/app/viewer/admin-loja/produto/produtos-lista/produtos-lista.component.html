@@ -20,44 +20,169 @@
       <ng-template #template>
 
         <div class="modal-body text-center">
-          <form #formulario>
+            <b>Criando novo hemocentro</b><br><br>
+            <!--<form #cadastraProduto="ngForm">-->
 
-            <!-- Camisas - Radio button -->
+            <!-- Camisa - Radio button -->
             <div class="custom-control custom-radio custom-control-inline">
-              <input (click)="setCategoria('Camisa')" type="radio" class="custom-control-input" id="camisa" name="camisa" mdbInput>
+              <input type="radio" class="custom-control-input" id="camisa" name="categoria" value="Camisa"
+                [(ngModel)]="produto.categoria" (click)="showOpcoesCamisa()"> 
               <label class="custom-control-label" for="camisa">Camisa</label>
             </div>
 
-            <!-- Canecas - Radio button -->
+            <!-- Caneca - Radio button -->
             <div class="custom-control custom-radio custom-control-inline">
-              <input (click)="setCategoria('Caneca')" type="radio" class="custom-control-input" id="caneca" name="caneca" mdbInput>
+              <input type="radio" class="custom-control-input" id="caneca" name="categoria" value="Caneca"
+                [(ngModel)]="produto.categoria" (click)="showOpcoesCaneca()">
               <label class="custom-control-label" for="caneca">Caneca</label>
             </div>
 
             <!-- Botton - Radio button -->
             <div class="custom-control custom-radio custom-control-inline">
-              <input (click)="setCategoria('Botton')" type="radio" class="custom-control-input" id="botton" name="botton" mdbInput>
+              <input type="radio" class="custom-control-input" id="botton" name="categoria" value="Botton"
+                [(ngModel)]="produto.categoria" (click)="showOpcoesButton()">
               <label class="custom-control-label" for="botton">Botton</label>
             </div>
+            <br><br>
 
-            <input type="text" class="form-control" name="nomeProduto" id="nomeProduto" placeholder="Nome do produto">
+            <!-- Nome -->
+            <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome do produto"
+              [(ngModel)]="produto.nome">
+
+            <br>
+
+            <!-- Valor -->
             <input type="number" class="form-control" name="valorUnitario" id="valorUnitario"
-              placeholder="Valor do produto">
-            <input type="number" class="form-control" name="quantidade" id="quantidade" placeholder="Quantidade">
-            <input type="text" class="form-control" name="tamanho" id="tamanho" placeholder="Tamanho">
-            <input type="text" class="form-control" name="volume" id="volume" placeholder="Volume">
-            <input type="text" class="form-control" name="material" id="material" placeholder="Material">
-            <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Descrição">
-            <!--
-            <div class="form-row ">
-              <div class="form-group col-md-6">
-                <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome">
+              placeholder="Valor do produto" [(ngModel)]="produto.valorunitario">
+
+            <br>
+
+            <!-- Quantidade -->
+            <input type="number" class="form-control" name="quantidade" id="quantidade" placeholder="Quantidade"
+              [(ngModel)]="produto.quantidade">
+
+            <br>
+
+            <!-- Tamanho -->
+            <div [hidden]="!mostrarTamanhos">
+              Tamanhos:<br>
+              <!-- P - Radio button -->
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="P" name="tamanho" value="P"
+                  [(ngModel)]="produto.tamanho">
+                <label class="custom-control-label" for="P">P</label>
               </div>
+
+              <!-- M - Radio button -->
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="M" name="tamanho" value="M"
+                  [(ngModel)]="produto.tamanho">
+                <label class="custom-control-label" for="M">M</label>
+              </div>
+
+              <!-- G - Radio button -->
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="G" name="tamanho" value="G"
+                  [(ngModel)]="produto.tamanho">
+                <label class="custom-control-label" for="G">G</label>
+              </div>
+
+              <!-- G - Radio button -->
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="GG" name="tamanho" value="GG"
+                  [(ngModel)]="produto.tamanho">
+                <label class="custom-control-label" for="GG">GG</label>
+              </div>
+
+              <br><br>
             </div>
-            -->
-          </form>
-          <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
-          <button type="button" class="btn btn-primary" (click)="salvar(formulario)">Salvar</button>
+
+
+            <!-- Volume 
+            <div [hidden]="!mostrarVolumes">
+             
+            </div>
+          -->
+
+            <!-- Material -->
+            <div [hidden]="!mostrarMateriais">
+              Materiais: <br>
+              <!-- Porcelana - Radio button -->
+              <div [hidden]="!mostrarMaterialPorcelana" class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="porcelana" name="material" value="Porcelana"
+                  [(ngModel)]="produto.material">
+                <label class="custom-control-label" for="porcelana">Porcelana</label>
+              </div>
+
+              <!-- Plastico - Radio button -->
+              <div [hidden]="!mostrarMaterialPlastico" class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="plastico" name="material" value="Plastico"
+                  [(ngModel)]="produto.material">
+                <label class="custom-control-label" for="plastico">Plastico</label>
+              </div>
+
+              <!-- Aluminio - Radio button -->
+              <div [hidden]="!mostrarMaterialAluminio" class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="aluminio" name="material" value="Aluminio"
+                  [(ngModel)]="produto.material">
+                <label class="custom-control-label" for="aluminio">Aluminio</label>
+              </div>
+
+              <!-- Algodão - Radio button -->
+              <div [hidden]="!mostrarMaterialAlgodao" class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="algodao" name="material" value="Algodão"
+                  [(ngModel)]="produto.material">
+                <label class="custom-control-label" for="algodao">Algodão</label>
+              </div>
+
+              <!-- Malha - Radio button -->
+              <div [hidden]="!mostrarMaterialMalha" class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="malha" name="material" value="Malha"
+                  [(ngModel)]="produto.material">
+                <label class="custom-control-label" for="malha">Malha</label>
+              </div>
+
+              <br><br>
+            </div>
+
+            <!-- Genero -->
+            <div [hidden]="!mostrarGeneros">
+              Generos:<br>
+              <!-- Feminino - Radio button -->
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="feminino" name="genero" value="Feminino"
+                  [(ngModel)]="produto.genero">
+                <label class="custom-control-label" for="feminino">Feminino</label>
+              </div>
+
+              <!-- Masculino - Radio button -->
+              <div class="custom-control custom-radio custom-control-inline">
+                <input type="radio" class="custom-control-input" id="masculino" name="genero" value="Masculino"
+                  [(ngModel)]="produto.genero">
+                <label class="custom-control-label" for="masculino">Masculino</label>
+              </div>
+
+              <br><br>
+            </div>
+
+
+            <!-- Descrição -->
+            <input type="text" class="form-control" name="descricao" id="descricao" placeholder="Descrição"
+              [(ngModel)]="produto.descricao">
+
+            <br>
+
+            <!-- Imagem -->
+            <input type="text" class="form-control" name="url" id="url" placeholder="Url imagem" [(ngModel)]="produto.url">
+
+            <br>
+
+            <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
+            <button type="button" class="btn btn-primary" (click)="adicionarProduto()">Adicionar
+              Produto</button>
+
+          <!--</form>-->
+
         </div>
 
       </ng-template>
@@ -76,8 +201,8 @@
     <table id="produtos" class="table table-hover" *ngIf="produtos$ | async as produtos; else loadingError">
       <thead>
         <tr>
-          <th>#</th>
-          <th>Produto</th>
+          <th>Categoria</th>
+          <th>Nome</th>
           <th>Qtd</th>
           <th>Valor</th>
           <th></th>
@@ -87,7 +212,7 @@
       <tbody>
 
         <tr *ngFor="let produto of produtos">
-          <td>{{ produto.id }}</td>
+          <td>{{ produto.categoria }}</td>
           <td>{{ produto.nome }}</td>
           <td>{{ produto.quantidade }}</td>
           <td>{{ produto.valorunitario }}</td>
@@ -98,7 +223,7 @@
                 Atualizar
               </button>
               {{ '' }}
-              <button class="btn btn-outline-danger mb-1 btn-sm">
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="removerProduto(produto)">
                 <!-- Pendente botão remover -->
                 Remover
               </button>

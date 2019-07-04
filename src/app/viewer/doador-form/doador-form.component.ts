@@ -22,7 +22,7 @@ export class DoadorFormComponent implements OnInit {
   modalRef: BsModalRef;
 
   doador: any = {
-    cpf: "", //mudar para pegar do usuário da sessão
+    cpf: this.serviceCookie.get("cpf"), //mudar para pegar do usuário da sessão
     tiposanguineo: null,
     malaria: false,
     hepatite11: false,
