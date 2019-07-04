@@ -59,8 +59,8 @@
 
               <ul *ngFor="let categoria of categorias; let i = index">
                 <li class="filter-list">
-                  <input class="pixel-checkbox" type="checkbox" [(ngModel)]="campoCategoria[i]"
-                    (change)="getCategoria(categoria.nome)">{{ categoria.nome }}
+                  <input class="pixel-checkbox" type="checkbox" 
+                    (change)="pegaProduto(filtros)" [(ngModel)]="filtros.categoria.nome">{{ categoria.nome }}
                 </li>
               </ul>
 
@@ -80,8 +80,8 @@
 
             <ul *ngFor="let genero of generos; let i = index">
               <li class="filter-list">
-                <input class="pixel-checkbox" type="checkbox" [(ngModel)]="campoGenero[i]"
-                  (change)="getGenero(genero.nome)">
+                <input class="pixel-checkbox" type="checkbox" 
+                  (change)="getGenero(genero.genero)">
                 {{genero.genero}}
               </li>
             </ul>
@@ -90,8 +90,8 @@
             <div class="head border-top border-danger">Material</div>
             <ul *ngFor="let material of materiais; let i = index">
               <li class="filter-list">
-                <input class="pixel-checkbox" type="checkbox" [(ngModel)]="campoMaterial[i]"
-                  (change)="getMaterial(material.nome)">
+                <input class="pixel-checkbox" type="checkbox" 
+                  (change)="getMaterial(material.material)">
                 {{material.material}}
               </li>
             </ul>
@@ -100,8 +100,8 @@
             <div class="head border-top border-danger">Tamanho</div>
             <ul *ngFor="let tamanho of tamanhos; let i = index">
               <li class="filter-list">
-                <input class="pixel-checkbox" type="checkbox" [(ngModel)]="campoTamanho[i]"
-                  (change)="getTamanho(tamanho.nome)">
+                <input class="pixel-checkbox" type="checkbox"
+                  (change)="getTamanho(tamanho.tamanho)">
                 {{tamanho.tamanho}}
               </li>
             </ul>
@@ -140,9 +140,9 @@
           <div>
             <div class="input-group filter-bar-search">
               <input type="text" placeholder="Pesquisar" (keyup.enter)="pegaProdutoBusca(filtros)"
-                [(ngModel)]="filtros.produto">
+                [(ngModel)]="filtros.nome">
               <div class="input-group-append">
-                <button type="button" (click)="pegaProdutoBusca(filtros)"><i class="fas fa-search"></i></button>
+                <button type="button" (click)="pegaProdutoBusca(filtros)" [(ngModel)]="filtros.nome"><i class="fas fa-search"></i>Buscar</button>
               </div>
             </div>
           </div>

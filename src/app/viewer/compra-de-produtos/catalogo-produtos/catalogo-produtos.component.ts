@@ -40,10 +40,10 @@ export class CatalogoProdutosComponent implements OnInit {
   public filtros = {
     nome: '',
     produto: '',
-    categoria: [],
-    genero: [],
-    tamanho: [],
-    material: [],
+    categoria: '',
+    genero: '',
+    tamanho: '',
+    material: '',
   }
 
   campoCategoria = [];
@@ -65,7 +65,7 @@ export class CatalogoProdutosComponent implements OnInit {
 
   ngOnInit() {
     this.catalogoService.getRecomendacao()
-    .subscribe(recomendacao => this.recomendacao = recomendacao);
+      .subscribe(recomendacao => this.recomendacao = recomendacao);
 
     this.catalogoService.getCategorias().
       subscribe(categorias => this.categorias = categorias);
@@ -85,6 +85,7 @@ export class CatalogoProdutosComponent implements OnInit {
 
 
   pegaProduto(filtro?) {
+    console.log(filtro);
     this.catalogoService.getProdutos(filtro)
       .subscribe(produtos => {
         this.produtos = produtos
@@ -96,17 +97,36 @@ export class CatalogoProdutosComponent implements OnInit {
     this.catalogoService.getProdutosBusca(filtro)
       .subscribe(produtos => {
         this.produtos = produtos
-        //this.sucRequi = true
       })
+      
   }
 
-  pegaCamisas() {
-    // implementar
+  pegaCategoria(categoria) {
+    if (categoria == "Camisa") {
+      this.catalogoService.getCamisas()
+        .subscribe(produtos => {
+          this.produtos = produtos
+        })
+    }
+
+    if (categoria == "Caneca") {
+      this.catalogoService.getCanecas()
+        .subscribe(produtos => {
+          this.produtos = produtos
+        })
+    }
+
+    if (categoria == "Botton") {
+      this.catalogoService.getBottons()
+        .subscribe(produtos => {
+          this.produtos = produtos
+        })
+    }
   }
 
-  
 
 
+/*
   getCategoria(nome) {
     if (this.filtros.categoria.find(x => x == nome)) {
       this.filtros.categoria = this.filtros.categoria.filter(x => x != nome);
@@ -153,6 +173,7 @@ export class CatalogoProdutosComponent implements OnInit {
     //console.log(this.produtos);
     this.pegaProduto(this.filtros);
   }
+  */
 
 
   limpar() {
@@ -164,20 +185,17 @@ export class CatalogoProdutosComponent implements OnInit {
     this.filtros = {
       nome: '',
       produto: '',
-      categoria: [],
-      genero: [],
-      tamanho: [],
-      material: [],
+      categoria: '',
+      genero: '',
+      tamanho: '',
+      material: '',
     }
 
     this.pegaProduto();
   }
 
-  getCamisa() {
 
-  }
-  
-  addCart(Product){
+  addCart(Product) {
     //console.log(Product);
     this.carrinhoService.addItem(Product);
     window.location.href = "/carrinho";
