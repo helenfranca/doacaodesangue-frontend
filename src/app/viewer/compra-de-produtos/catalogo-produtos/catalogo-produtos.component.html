@@ -1,37 +1,33 @@
-<!-- ================ Area de banner ================== ->
+<!-- ================ Area de banner ================== -->
 <section class="blog-banner-area" id="category">
-    <div class="container h-100">
-      <div class="blog-banner">
-        <div class="text-center">
-          <nav aria-label="breadcrumb" class="banner-breadcrumb">
-          </nav>
-        </div>
+  <div class="container h-100">
+    <div class="blog-banner">
+      <div class="text-center">
+        <nav aria-label="breadcrumb" class="banner-breadcrumb">
+        </nav>
       </div>
     </div>
-  
-    <br>
-    <div class="text-center">
-      <h2>Catálogo de Produtos</h2>
-    </div>
-  
-  </section>
-  <-- ================ Area de banner ================== -->
+  </div>
+
+  <br>
+  <div class="text-center">
+  </div>
+
+</section>
+<!-- ================ Area de banner ================== -->
 
 <!-- ================ inicio carousel ================= -->
 <carousel>
-  <div *ngFor="let item of recomendacao">
-
-    <slide>
-      <img src="https://raw.githubusercontent.com/malufreitas/doacaodesangue-frontend/devMalu/images/teste.png" alt="first slide"
-        style="display: block; width: 100%;" />
-      <div class="carousel-caption d-none d-md-block">
+    <slide *ngFor="let item of recomendacao">
+      <img
+        src="https://raw.githubusercontent.com/malufreitas/doacaodesangue-frontend/devMalu/images/imagem%20branca%20recomenda%C3%A7%C3%A3o.png"
+         style="display: block; width: 100%;" />
+      <div class="carousel-caption d-none d-md-block" style="top:1%;">
         <h3>{{ item.produto.nome }}</h3>
-        <img src="{{ item.imagem.url }}" alt="first slide" style="display: center; width: 10%;" />
+        <img src="{{ item.imagem.url }}" style="display: center; width: 10%;" />
         <h5>{{ item.porcentagem | number:'1.0-0' }}% dos clientes compraram esse produto</h5>
       </div>
     </slide>
-
-  </div>
 </carousel>
 <!-- ================ final carousel ================= -->
 
@@ -59,8 +55,8 @@
 
               <ul *ngFor="let categoria of categorias; let i = index">
                 <li class="filter-list">
-                  <input class="pixel-checkbox" type="checkbox" 
-                    (change)="pegaProduto(filtros)" [(ngModel)]="filtros.categoria.nome">{{ categoria.nome }}
+                  <input class="pixel-checkbox" type="checkbox" (change)="pegaProduto(filtros)"
+                    [(ngModel)]="filtros.categoria.nome">{{ categoria.nome }}
                 </li>
               </ul>
 
@@ -80,8 +76,7 @@
 
             <ul *ngFor="let genero of generos; let i = index">
               <li class="filter-list">
-                <input class="pixel-checkbox" type="checkbox" 
-                  (change)="getGenero(genero.genero)">
+                <input class="pixel-checkbox" type="checkbox" (change)="getGenero(genero.genero)">
                 {{genero.genero}}
               </li>
             </ul>
@@ -90,8 +85,7 @@
             <div class="head border-top border-danger">Material</div>
             <ul *ngFor="let material of materiais; let i = index">
               <li class="filter-list">
-                <input class="pixel-checkbox" type="checkbox" 
-                  (change)="getMaterial(material.material)">
+                <input class="pixel-checkbox" type="checkbox" (change)="getMaterial(material.material)">
                 {{material.material}}
               </li>
             </ul>
@@ -100,8 +94,7 @@
             <div class="head border-top border-danger">Tamanho</div>
             <ul *ngFor="let tamanho of tamanhos; let i = index">
               <li class="filter-list">
-                <input class="pixel-checkbox" type="checkbox"
-                  (change)="getTamanho(tamanho.tamanho)">
+                <input class="pixel-checkbox" type="checkbox" (change)="getTamanho(tamanho.tamanho)">
                 {{tamanho.tamanho}}
               </li>
             </ul>
@@ -142,7 +135,8 @@
               <input type="text" placeholder="Pesquisar" (keyup.enter)="pegaProdutoBusca(filtros)"
                 [(ngModel)]="filtros.nome">
               <div class="input-group-append">
-                <button type="button" (click)="pegaProdutoBusca(filtros)" [(ngModel)]="filtros.nome"><i class="fas fa-search"></i>Buscar</button>
+                <button type="button" (click)="pegaProdutoBusca(filtros)" [(ngModel)]="filtros.nome"><i
+                    class="fas fa-search"></i>Buscar</button>
               </div>
             </div>
           </div>
