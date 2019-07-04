@@ -1,4 +1,3 @@
-import { LoginComponent } from './../login/login.component';
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { HttpClient } from "@angular/common/http";
@@ -15,8 +14,7 @@ export class AuthService {
   constructor(
     private router: Router,
     private http: HttpClient,
-    private cookieService: CookieService
-    //,private loginComponent: LoginComponent
+    private cookieService: CookieService //,private loginComponent: LoginComponent
   ) {}
 
   salvaCookie(resposta) {
@@ -44,27 +42,25 @@ export class AuthService {
   }
 
   login(resposta) {
-    console.log(resposta);
     if (resposta.status == 404) {
-      alert('Login incorreto');
-    }
-    this.salvaCookie(resposta);
-    this.usuarioAutenticado = true;
-
-    // Direcionar para tela:
-
-    if (
-      this.cookieService.check("token") &&
-      this.cookieService.get("admin").slice(0, 4) == "HEMO"
-    ) {
-      window.location.href = "/hemocentro";
-    } else if (
-      this.cookieService.check("token") &&
-      this.cookieService.get("admin").slice(0, 3) == "SIS"
-    ) {
-      window.location.href = "/sistema";
-    } else {
-      window.location.href = "/usuario";
+      this.cookieService.set("erro", resposta.status);
+    } else if (resposta.status == 200) {
+      this.salvaCookie(resposta);
+      this.usuarioAutenticado = true;
+      // Direcionar para tela:
+      if (
+        this.cookieService.check("token") &&
+        this.cookieService.get("admin").slice(0, 4) == "HEMO"
+      ) {
+        window.location.href = "/hemocentro";
+      } else if (
+        this.cookieService.check("token") &&
+        this.cookieService.get("admin").slice(0, 3) == "SIS"
+      ) {
+        window.location.href = "/sistema";
+      } else {
+        window.location.href = "/usuario";
+      }
     }
   }
 
@@ -73,13 +69,14 @@ export class AuthService {
     this.router.navigate(["/"]);
   }
 
-  autenticacao(formulario) {
-    this.http
+  async autenticacao(formulario) {
+    await this.http
       .post<any>(`${environment.API}` + "auth/login", formulario)
       .pipe()
       .subscribe(
-        success => this.login(success), //resposta do servidor com o status 404 ou 200
-        error => console.log(error)
+        success => {
+          this.login(success);
+        } //resposta do servidor com o status 404 ou 200
       );
   }
 

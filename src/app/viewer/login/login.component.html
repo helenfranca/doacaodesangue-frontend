@@ -2,11 +2,13 @@
 
 <div class="container">
   <!-- essa 'class do aside' deixou o card do login no meio -->
-  <aside class="col-xs-12 col-sm-6 col-md-4 mx-auto">
+  <aside class="col-xs-0 col-sm-0 col-md-5 mx-auto">
     <div class="card">
       <article class="card-body text-center">
         <!-- Cadastro padrão -->
-        <a [routerLink]="['/cadastro']" class="float-right btn btn-outline-success"
+        <a
+          [routerLink]="['/cadastro']"
+          class="float-right btn btn-outline-success"
           >Quero me cadastrar</a
         >
         <h4 class="card-title mb-4 mt-1">Login</h4>
@@ -35,9 +37,12 @@
             #email="ngModel"
           />
 
-          <div *ngIf="!email.valid && email.touched" class="text-danger">
+          <p
+            *ngIf="!email.valid && email.touched && resposta"
+            class="text-danger"
+          >
             E-mail é obrigatório.
-          </div>
+          </p>
         </div>
 
         <!-- Senha -->
@@ -53,9 +58,12 @@
             #senha="ngModel"
           />
 
-          <div *ngIf="!senha.valid && senha.touched" class="text-danger">
+          <p
+            *ngIf="!senha.valid && senha.touched && resposta"
+            class="text-danger"
+          >
             Senha é obrigatória.
-          </div>
+          </p>
         </div>
 
         <!-- Submit e Esqueci minha senha -->
@@ -79,13 +87,22 @@
             <a class="small" href="/esqueciminhasenha">Esqueci minha senha</a>
           </div>
         </div>
+
         <!-- </form> -->
       </article>
     </div>
+    <br /><br />
+    <div
+      class="alert alert-danger"
+      role="alert"
+      *ngIf="servidor == 404"
+      )
+      style="text-align: center"
+    >
+      Os dados informados não conferem. Por favor, tente novamente!
+    </div>
   </aside>
 </div>
-
-
 
 <ng-template #template>
   <div class="modal-body text-center">
