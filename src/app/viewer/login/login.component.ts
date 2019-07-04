@@ -3,6 +3,8 @@ import { AuthService } from "../guards/auth.service";
 import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 import { CookieService } from "ngx-cookie-service";
 import { Message } from "primeng/components/common/message";
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: "app-login",
@@ -21,10 +23,11 @@ export class LoginComponent implements OnInit {
   constructor(
     private authService: AuthService,
     private modalService: BsModalService,
-    private serviceCookie: CookieService
-  ) {}
+    private serviceCookie: CookieService,
+    private http: HttpClient
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   verificaValidTouched(campo) {
     return !campo.valid && campo.touched;
@@ -49,4 +52,5 @@ export class LoginComponent implements OnInit {
   ok(): void {
     this.modalRef.hide();
   }
+
 }

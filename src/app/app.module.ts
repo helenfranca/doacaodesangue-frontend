@@ -48,6 +48,7 @@ import { Relatorio3Component } from "./viewer/relatorio/relatorio3/relatorio3.co
 import { Relatorio4Component } from "./viewer/relatorio/relatorio4/relatorio4.component";
 import { LoginComponent } from "./viewer/login/login.component";
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,8 +102,9 @@ import { LoginComponent } from "./viewer/login/login.component";
     MessageService,
     CookieService,
     CarrinhoDeComprasComponent
+
   ],
   bootstrap: [AppComponent],
   entryComponents: [ConfirmarDoacaoComponent]
 })
-export class AppModule {}
+export class AppModule { }

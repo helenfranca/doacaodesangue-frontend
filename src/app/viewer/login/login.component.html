@@ -6,18 +6,13 @@
     <div class="card">
       <article class="card-body text-center">
         <!-- Cadastro padrão -->
-        <a
-          [routerLink]="['/cadastro']"
-          class="float-right btn btn-outline-success"
-          >Quero me cadastrar</a
-        >
+        <a [routerLink]="['/cadastro']" class="float-right btn btn-outline-success">Quero me cadastrar</a>
         <h4 class="card-title mb-4 mt-1">Login</h4>
 
         <!-- Cadastro e Login Google -->
         <p>
           <a href="" class="btn btn-block btn-outline-primary">
-            <i class="fab fa-google"></i> Login com Google</a
-          >
+            <i class="fab fa-google"></i> Login com Google</a>
         </p>
         <hr />
 
@@ -26,42 +21,20 @@
 
         <!-- E-mail -->
         <div class="form-group">
-          <input
-            type="text"
-            class="form-control"
-            name="email"
-            id="email"
-            placeholder="Login"
-            [(ngModel)]="usuario.login"
-            required
-            #email="ngModel"
-          />
+          <input type="text" class="form-control" name="email" id="email" placeholder="Login"
+            [(ngModel)]="usuario.login" required #email="ngModel" />
 
-          <p
-            *ngIf="!email.valid && email.touched && resposta"
-            class="text-danger"
-          >
+          <p *ngIf="!email.valid && email.touched && resposta" class="text-danger">
             E-mail é obrigatório.
           </p>
         </div>
 
         <!-- Senha -->
         <div class="form-group">
-          <input
-            type="password"
-            class="form-control"
-            name="senha"
-            id="senha"
-            placeholder="Senha"
-            [(ngModel)]="usuario.senha"
-            required
-            #senha="ngModel"
-          />
+          <input type="password" class="form-control" name="senha" id="senha" placeholder="Senha"
+            [(ngModel)]="usuario.senha" required #senha="ngModel" />
 
-          <p
-            *ngIf="!senha.valid && senha.touched && resposta"
-            class="text-danger"
-          >
+          <p *ngIf="!senha.valid && senha.touched && resposta" class="text-danger">
             Senha é obrigatória.
           </p>
         </div>
@@ -71,12 +44,7 @@
           <!-- Botão submit -->
           <div class="col-md-6">
             <div class="form-group">
-              <button
-                (click)="logar()"
-                type="submit"
-                class="btn btn-primary btn-block"
-                [disabled]="!usuario"
-              >
+              <button (click)="logar()" type="submit" class="btn btn-primary btn-block" [disabled]="!usuario">
                 Login
               </button>
             </div>
@@ -92,13 +60,7 @@
       </article>
     </div>
     <br /><br />
-    <div
-      class="alert alert-danger"
-      role="alert"
-      *ngIf="servidor == 404"
-      )
-      style="text-align: center"
-    >
+    <div class="alert alert-danger" role="alert" *ngIf="servidor == 404" ) style="text-align: center">
       Os dados informados não conferem. Por favor, tente novamente!
     </div>
   </aside>
