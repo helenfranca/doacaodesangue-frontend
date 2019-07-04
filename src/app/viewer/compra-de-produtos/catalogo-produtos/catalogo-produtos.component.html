@@ -18,16 +18,16 @@
 
 <!-- ================ inicio carousel ================= -->
 <carousel>
-    <slide *ngFor="let item of recomendacao">
-      <img
-        src="https://raw.githubusercontent.com/malufreitas/doacaodesangue-frontend/devMalu/images/imagem%20branca%20recomenda%C3%A7%C3%A3o.png"
-         style="display: block; width: 100%;" />
-      <div class="carousel-caption d-none d-md-block" style="top:1%;">
-        <h3>{{ item.produto.nome }}</h3>
-        <img src="{{ item.imagem.url }}" style="display: center; width: 10%;" />
-        <h5>{{ item.porcentagem | number:'1.0-0' }}% dos clientes compraram esse produto</h5>
-      </div>
-    </slide>
+  <slide *ngFor="let item of recomendacao">
+    <img
+      src="https://raw.githubusercontent.com/malufreitas/doacaodesangue-frontend/devMalu/images/imagem%20branca%20recomenda%C3%A7%C3%A3o.png"
+      style="display: block; width: 100%;" />
+    <div class="carousel-caption d-none d-md-block" style="top: 1%;">
+      <h3>{{ item.produto.nome }}</h3>
+      <img src="{{ item.imagem.url }}" style="display: center; width: 8%;" />
+      <h5>{{ item.porcentagem | number:'1.0-0' }}% dos clientes compraram esse produto</h5>
+    </div>
+  </slide>
 </carousel>
 <!-- ================ final carousel ================= -->
 
@@ -55,8 +55,8 @@
 
               <ul *ngFor="let categoria of categorias; let i = index">
                 <li class="filter-list">
-                  <input class="pixel-checkbox" type="checkbox" (change)="pegaProduto(filtros)"
-                    [(ngModel)]="filtros.categoria.nome">{{ categoria.nome }}
+                    <input class="pixel-checkbox" type="checkbox" [(ngModel)]="campoCategoria[i]"
+                    (change)="pegaCategoria(categoria.nome)">{{ categoria.nome }}
                 </li>
               </ul>
 
@@ -74,7 +74,7 @@
 
             <div class="head">Genero</div>
 
-            <ul *ngFor="let genero of generos; let i = index">
+            <ul *ngFor="let genero of generos">
               <li class="filter-list">
                 <input class="pixel-checkbox" type="checkbox" (change)="getGenero(genero.genero)">
                 {{genero.genero}}
@@ -83,7 +83,7 @@
 
             <br>
             <div class="head border-top border-danger">Material</div>
-            <ul *ngFor="let material of materiais; let i = index">
+            <ul *ngFor="let material of materiais">
               <li class="filter-list">
                 <input class="pixel-checkbox" type="checkbox" (change)="getMaterial(material.material)">
                 {{material.material}}
@@ -92,7 +92,7 @@
 
             <br>
             <div class="head border-top border-danger">Tamanho</div>
-            <ul *ngFor="let tamanho of tamanhos; let i = index">
+            <ul *ngFor="let tamanho of tamanhos">
               <li class="filter-list">
                 <input class="pixel-checkbox" type="checkbox" (change)="getTamanho(tamanho.tamanho)">
                 {{tamanho.tamanho}}
@@ -135,7 +135,7 @@
               <input type="text" placeholder="Pesquisar" (keyup.enter)="pegaProdutoBusca(filtros)"
                 [(ngModel)]="filtros.nome">
               <div class="input-group-append">
-                <button type="button" (click)="pegaProdutoBusca(filtros)" [(ngModel)]="filtros.nome"><i
+                <button type="button" (click)="pegaProdutoBusca(filtros)"><i
                     class="fas fa-search"></i>Buscar</button>
               </div>
             </div>

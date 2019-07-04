@@ -46,7 +46,7 @@ export class AuthService {
   login(resposta) {
     console.log(resposta);
     if (resposta.status == 404) {
-      alert('Login incorreto');
+      alert('Login e/ou senha incorreta!');
     }
     this.salvaCookie(resposta);
     this.usuarioAutenticado = true;

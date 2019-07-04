@@ -40,10 +40,10 @@ export class CatalogoProdutosComponent implements OnInit {
   public filtros = {
     nome: '',
     produto: '',
-    categoria: '',
-    genero: '',
-    tamanho: '',
-    material: '',
+    categoria: [],
+    genero: [],
+    tamanho: [],
+    material: [],
   }
 
   campoCategoria = [];
@@ -85,7 +85,7 @@ export class CatalogoProdutosComponent implements OnInit {
 
 
   pegaProduto(filtro?) {
-    console.log(filtro);
+    console.log('filtro > ',filtro);
     this.catalogoService.getProdutos(filtro)
       .subscribe(produtos => {
         this.produtos = produtos
@@ -94,11 +94,11 @@ export class CatalogoProdutosComponent implements OnInit {
   }
 
   pegaProdutoBusca(filtro?) {
+    console.log('busca > ',filtro);
     this.catalogoService.getProdutosBusca(filtro)
       .subscribe(produtos => {
         this.produtos = produtos
       })
-      
   }
 
   pegaCategoria(categoria) {
@@ -125,8 +125,6 @@ export class CatalogoProdutosComponent implements OnInit {
   }
 
 
-
-/*
   getCategoria(nome) {
     if (this.filtros.categoria.find(x => x == nome)) {
       this.filtros.categoria = this.filtros.categoria.filter(x => x != nome);
@@ -134,7 +132,7 @@ export class CatalogoProdutosComponent implements OnInit {
     else {
       this.filtros.categoria.push(nome);
     }
-    //console.log(this.produtos);
+    console.log(this.produtos);
     this.pegaProduto(this.filtros);
   }
 
@@ -173,7 +171,7 @@ export class CatalogoProdutosComponent implements OnInit {
     //console.log(this.produtos);
     this.pegaProduto(this.filtros);
   }
-  */
+  
 
 
   limpar() {
@@ -183,13 +181,13 @@ export class CatalogoProdutosComponent implements OnInit {
     this.campoTamanho = [];
 
     this.filtros = {
-      nome: '',
-      produto: '',
-      categoria: '',
-      genero: '',
-      tamanho: '',
-      material: '',
-    }
+        nome: '',
+        produto: '',
+        categoria: [],
+        genero: [],
+        tamanho: [],
+        material: [],
+      } 
 
     this.pegaProduto();
   }

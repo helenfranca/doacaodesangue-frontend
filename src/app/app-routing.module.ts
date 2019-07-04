@@ -73,8 +73,8 @@ const routes: Routes = [
   },
   {
     path: "carrinho",
-    component: CarrinhoDeComprasComponent,
-    canActivate: [AuthGuard] //Para guardar essa rota
+    component: CarrinhoDeComprasComponent
+    //,canActivate: [AuthGuard] //Para guardar essa rota
   },
   {
     path: "enderecodeentrega",

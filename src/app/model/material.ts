@@ -1,4 +1,4 @@
 export interface Material {
     id: number;
-    nome: string
+    material: string
   }
