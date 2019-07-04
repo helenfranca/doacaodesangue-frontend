@@ -108,6 +108,10 @@
           É obrigatório confirmar a senha.
         </div>
 
+        <div *ngIf="usuario.confirmarSenha != null && usuario.confirmarSenha != usuario.senha" class="text-danger">
+            As senhas não conferem.
+          </div>
+
       </div>
 
 

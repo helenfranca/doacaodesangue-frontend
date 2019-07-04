@@ -28,6 +28,7 @@ export class AuthService {
       dt.setHours(dt.getHours() + 1)
     );
     this.cookieService.set("tempo_sessao", resposta.expires_in);
+    this.cookieService.set("id", resposta.user_id.id);
     this.cookieService.set("nome", resposta.user_id.nome);
     this.cookieService.set("sobrenome", resposta.user_id.sobrenome);
     this.cookieService.set("datanascimento", resposta.user_id.datanascimento);
@@ -45,7 +46,7 @@ export class AuthService {
   login(resposta) {
     console.log(resposta);
     if (resposta.status == 404) {
-      alert('Login incorreto');
+      alert('Login e/ou senha incorreta!');
     }
     this.salvaCookie(resposta);
     this.usuarioAutenticado = true;
@@ -63,7 +64,7 @@ export class AuthService {
     ) {
       window.location.href = "/sistema";
     } else {
-      window.location.href = "/";
+      window.location.href = "/usuario";
     }
   }
 

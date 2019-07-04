@@ -10,7 +10,7 @@ import { Relatorio3Service } from './relatorio3.service';
 })
 export class Relatorio3Component implements OnInit {
 
-  relatorios: Relatorio3[];
+  private demandas;
 
   constructor(
     private service: Relatorio3Service
@@ -18,8 +18,24 @@ export class Relatorio3Component implements OnInit {
   }
 
   ngOnInit() {
-    this.service.list()
-    .subscribe(dados => this.relatorios = dados);
+   this.demandas = this.getDemandas();
+   //this.montaRelatorio(this.demandas);
+  }
+
+
+  getDemandas() {
+    return this.service.list()
+    .subscribe(dados => this.demandas = dados);
+  }
+
+  montaRelatorio(demandas) {
+
+    /*
+    for (let i in demandas) {
+      console.log(demandas[i]);    
+    }
+    */
+  
   }
 
 }

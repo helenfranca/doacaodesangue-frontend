@@ -1,4 +1,4 @@
 export interface Tamanho {
     id: number;
-    nome: string
+    tamanho: string
   }
