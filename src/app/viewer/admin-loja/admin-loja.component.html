@@ -1,7 +1,7 @@
 <!-- <div class="container"> -->
 <div class="d-flex" [ngClass]="{ toggled: app.cha }" id="wrapper">
   <!-- Sidebar -->
-  <div class="bg-light border-right" id="sidebar-wrapper">
+  <div class="bg-dark border-right" id="sidebar-wrapper">
     <!-- <div class="sidebar-heading">Meu teste</div> -->
     <div class="list-group list-group-flush">
       <a
@@ -9,18 +9,19 @@
         (click)="opcao = 0"
         class="list-group-item list-group-item-action bg-light"
         >Produtos</a
-      >
+      ><br />
       <a
         (click)="opcao = 1"
         class="list-group-item list-group-item-action bg-light"
         >Hemocentros</a
       >
+      <br />
       <a
         (click)="opcao = 2"
         class="list-group-item list-group-item-action bg-light"
         >Relatório</a
       >
-
+      <br />
       <a
         *ngIf="opcao == 2"
         (click)="opcao = 3"

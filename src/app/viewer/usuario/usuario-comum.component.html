@@ -1,7 +1,7 @@
 <!-- <div class="container"> -->
 <div class="d-flex" [ngClass]="{ toggled: app.cha }" id="wrapper">
   <!-- Sidebar -->
-  <div class="bg-light border-right" id="sidebar-wrapper">
+  <div class="bg-dark border-right " id="sidebar-wrapper">
     <!-- <div class="sidebar-heading">Meu teste</div> -->
     <div class="list-group list-group-flush">
       <!-- <a
@@ -10,17 +10,51 @@
         class="list-group-item list-group-item-action bg-light"
         >Meu perfil</a
       > -->
-      <a [routerLink]="" *ngIf="doador == 200" (click)="opcao = 1"
-        class="list-group-item list-group-item-action bg-light">Minhas Doações</a>
 
-      <a [routerLink]="" *ngIf="doador == 404" (click)="opcao = 2"
-        class="list-group-item list-group-item-action bg-light">Quero me tornar um doador</a>
-      <a [routerLink]="" (click)="opcao = 4" class="list-group-item list-group-item-action bg-light">Onde posso
-        doar?</a>
-      <a [routerLink]="" (click)="opcao = 6" class="list-group-item list-group-item-action bg-light">Dúvidas</a>
-      <br /><br /><br />
-      <a [routerLink]="" (click)="opcao = 5" class="list-group-item list-group-item-action bg-light">Loja Virtual</a>
-      <a [routerLink]="" (click)="opcao = 3" class="list-group-item list-group-item-action bg-light">Minhas Compras</a>
+      <a
+        [routerLink]=""
+        *ngIf="doador == 200"
+        (click)="opcao = 1"
+        class="list-group-item list-group-item-action bg-light"
+        >Minhas Doações</a
+      >
+
+      <a
+        [routerLink]=""
+        *ngIf="doador == 404"
+        (click)="opcao = 2"
+        class="list-group-item list-group-item-action bg-light"
+        >Quero me tornar um doador</a
+      >
+      <br />
+      <a
+        [routerLink]=""
+        (click)="opcao = 4"
+        class="list-group-item list-group-item-action bg-light"
+        >Onde posso doar?</a
+      >
+      <br />
+      <a
+        [routerLink]=""
+        (click)="opcao = 6"
+        class="list-group-item list-group-item-action bg-light"
+        >Dúvidas</a
+      >
+      <br />
+      <a
+        [routerLink]=""
+        (click)="opcao = 5"
+        class="list-group-item list-group-item-action bg-light"
+        >Loja Virtual</a
+      >
+      <br />
+      <a
+        [routerLink]=""
+        (click)="opcao = 3"
+        class="list-group-item list-group-item-action bg-light"
+        >Minhas Compras</a
+      >
+      <br />
     </div>
   </div>
   <!-- /#sidebar-wrapper -->
