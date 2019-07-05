@@ -26,7 +26,7 @@ export class ProdutosListaComponent implements OnInit {
   message: string;
 
   private produto = {
-    id: 8,
+    id: 15,
     nome: null,
     quantidade: null,
     descricao: '',
@@ -141,7 +141,7 @@ export class ProdutosListaComponent implements OnInit {
   removerProduto(produto) {
     console.log(produto)
     this.http
-      .put(`${environment.API}` + "produto", produto)
+      .delete(`${environment.API}` + "produto", produto)
       .pipe(take(1))
       .subscribe(dados => console.log('no subscribe >', dados));
   }
