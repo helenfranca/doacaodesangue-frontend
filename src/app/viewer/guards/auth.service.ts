@@ -15,7 +15,7 @@ export class AuthService {
     private router: Router,
     private http: HttpClient,
     private cookieService: CookieService //,private loginComponent: LoginComponent
-  ) {}
+  ) { }
 
   salvaCookie(resposta) {
     let dt = new Date();

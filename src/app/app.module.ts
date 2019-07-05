@@ -9,7 +9,6 @@ import { ModalModule } from "ngx-bootstrap/modal";
 import { CookieService } from "ngx-cookie-service";
 import { StorageServiceModule } from "angular-webstorage-service";
 import { BsDropdownModule } from "ngx-bootstrap/dropdown";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CatalogoProdutosComponent } from "./viewer/compra-de-produtos/catalogo-produtos/catalogo-produtos.component";
@@ -35,6 +34,7 @@ import { RelatorioModule } from "./viewer/relatorio/relatorio.module";
 import { DadosEntregaFormComponent } from "./viewer/compra-de-produtos/dados-entrega-form/dados-entrega-form.component";
 import { MessageService } from "primeng/components/common/messageservice";
 import { ProdutosListaComponent } from "./viewer/admin-loja/produto/produtos-lista/produtos-lista.component";
+import { NgxMaskModule } from 'ngx-mask'
 import { usuarioComumComponent } from "./viewer/usuario/usuario-comum.component";
 import { hemocentroComponent } from "./viewer/hemocentro/hemocentro.component";
 import { AccordionModule } from "primeng/accordion";
@@ -47,7 +47,7 @@ import { Relatorio2Component } from "./viewer/relatorio/relatorio2/relatorio2.co
 import { Relatorio3Component } from "./viewer/relatorio/relatorio3/relatorio3.component";
 import { Relatorio4Component } from "./viewer/relatorio/relatorio4/relatorio4.component";
 import { LoginComponent } from "./viewer/login/login.component";
-
+import { GerenciaHemocentrosComponent } from './viewer/admin-loja/gerencia-hemocentros/gerencia-hemocentros.component';
 
 @NgModule({
   declarations: [
@@ -77,7 +77,8 @@ import { LoginComponent } from "./viewer/login/login.component";
     Relatorio2Component,
     Relatorio3Component,
     Relatorio4Component,
-    LoginComponent
+    LoginComponent,
+    GerenciaHemocentrosComponent
   ],
   imports: [
     NgbModule,
@@ -93,7 +94,8 @@ import { LoginComponent } from "./viewer/login/login.component";
     CarouselModule.forRoot(),
     StorageServiceModule,
     RelatorioModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    NgxMaskModule.forRoot({})
   ],
   providers: [
     AuthService,

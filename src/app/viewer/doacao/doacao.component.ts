@@ -10,7 +10,7 @@ import { Doacao } from "src/app/model/doacao";
   styleUrls: ["./doacao.component.css"]
 })
 export class doacaoComponent implements OnInit {
-  constructor(private cookieService: CookieService, private http: HttpClient) {}
+  constructor(private cookieService: CookieService, private http: HttpClient) { }
   // moment = require("moment");
   // moment().format();
 

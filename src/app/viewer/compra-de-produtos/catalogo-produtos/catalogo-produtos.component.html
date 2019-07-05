@@ -1,45 +1,34 @@
-<!-- ================ Area de banner ================== ->
+<!-- ================ Area de banner ================== -->
 <section class="blog-banner-area" id="category">
-    <div class="container h-100">
-      <div class="blog-banner">
-        <div class="text-center">
-          <nav aria-label="breadcrumb" class="banner-breadcrumb">
-          </nav>
-        </div>
+  <div class="container h-100">
+    <div class="blog-banner">
+      <div class="text-center">
+        <nav aria-label="breadcrumb" class="banner-breadcrumb"></nav>
       </div>
     </div>
-  
-    <br>
-    <div class="text-center">
-      <h2>Catálogo de Produtos</h2>
-    </div>
-  
-  </section>
-  <-- ================ Area de banner ================== -->
+  </div>
+
+  <br />
+  <div class="text-center"></div>
+</section>
+<!-- ================ Area de banner ================== -->
 
 <!-- ================ inicio carousel ================= -->
 <carousel>
-  <div *ngFor="let item of recomendacao">
-    <slide>
-      <img
-        src="https://www.weinmann.com.br/Style%20Library/img/banner_blood-donation.jpg"
-        alt="first slide"
-        style="display: block; width: 100%;"
-      />
-      <div class="carousel-caption d-none d-md-block">
-        <h3>{{ item.produto.nome }}</h3>
-        <img
-          src="{{ item.imagem.url }}"
-          alt="first slide"
-          style="display: center; width: 10%;"
-        />
-        <h5>
-          {{ item.porcentagem | number: "1.0-0" }}% dos clientes compraram esse
-          produto
-        </h5>
-      </div>
-    </slide>
-  </div>
+  <slide *ngFor="let item of recomendacao">
+    <img
+      src="https://raw.githubusercontent.com/malufreitas/doacaodesangue-frontend/devMalu/images/imagem%20branca%20recomenda%C3%A7%C3%A3o.png"
+      style="display: block; width: 100%;"
+    />
+    <div class="carousel-caption d-none d-md-block" style="top: 1%;">
+      <h3>{{ item.produto.nome }}</h3>
+      <img src="{{ item.imagem.url }}" style="display: center; width: 8%;" />
+      <h5>
+        {{ item.porcentagem | number: "1.0-0" }}% dos clientes compraram esse
+        produto
+      </h5>
+    </div>
+  </slide>
 </carousel>
 <!-- ================ final carousel ================= -->
 
@@ -60,7 +49,7 @@
                     class="pixel-checkbox"
                     type="checkbox"
                     [(ngModel)]="campoCategoria[i]"
-                    (change)="getCategoria(categoria.nome)"
+                    (change)="pegaCategoria(categoria.nome)"
                   />{{ categoria.nome }}
                 </li>
               </ul>
@@ -77,13 +66,12 @@
           <div class="common-filter bg-white">
             <div class="head">Genero</div>
 
-            <ul *ngFor="let genero of generos; let i = index">
+            <ul *ngFor="let genero of generos">
               <li class="filter-list">
                 <input
                   class="pixel-checkbox"
                   type="checkbox"
-                  [(ngModel)]="campoGenero[i]"
-                  (change)="getGenero(genero.nome)"
+                  (change)="getGenero(genero.genero)"
                 />
                 {{ genero.genero }}
               </li>
@@ -91,13 +79,12 @@
 
             <br />
             <div class="head border-top border-danger">Material</div>
-            <ul *ngFor="let material of materiais; let i = index">
+            <ul *ngFor="let material of materiais">
               <li class="filter-list">
                 <input
                   class="pixel-checkbox"
                   type="checkbox"
-                  [(ngModel)]="campoMaterial[i]"
-                  (change)="getMaterial(material.nome)"
+                  (change)="getMaterial(material.material)"
                 />
                 {{ material.material }}
               </li>
@@ -105,13 +92,12 @@
 
             <br />
             <div class="head border-top border-danger">Tamanho</div>
-            <ul *ngFor="let tamanho of tamanhos; let i = index">
+            <ul *ngFor="let tamanho of tamanhos">
               <li class="filter-list">
                 <input
                   class="pixel-checkbox"
                   type="checkbox"
-                  [(ngModel)]="campoTamanho[i]"
-                  (change)="getTamanho(tamanho.nome)"
+                  (change)="getTamanho(tamanho.tamanho)"
                 />
                 {{ tamanho.tamanho }}
               </li>
@@ -124,14 +110,14 @@
         <!-- Barra de filtros -->
         <div class="filter-bar d-flex flex-wrap align-items-center bg-white">
           <!-- Ordenação dos produtos 
-            <div class="sorting">
-              <select (change)="ordenaProdutos($event.target.value)">
-                <option value="0">Ordenação Padrão</option>
-                <option value="1">Ordem Alfabetica</option>
-                <option value="2">Mais Recente</option>
-              </select>
-            </div>
-            -->
+              <div class="sorting">
+                <select (change)="ordenaProdutos($event.target.value)">
+                  <option value="0">Ordenação Padrão</option>
+                  <option value="1">Ordem Alfabetica</option>
+                  <option value="2">Mais Recente</option>
+                </select>
+              </div>
+              -->
 
           <!-- Limpar filtros selecionados -->
           <div class="sorting mr-auto">
@@ -147,11 +133,11 @@
                 type="text"
                 placeholder="Pesquisar"
                 (keyup.enter)="pegaProdutoBusca(filtros)"
-                [(ngModel)]="filtros.produto"
+                [(ngModel)]="filtros.nome"
               />
               <div class="input-group-append">
                 <button type="button" (click)="pegaProdutoBusca(filtros)">
-                  <i class="fas fa-search"></i>
+                  <i class="fas fa-search"></i>Buscar
                 </button>
               </div>
             </div>

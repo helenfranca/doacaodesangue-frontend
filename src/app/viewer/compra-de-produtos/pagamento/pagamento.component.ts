@@ -1,7 +1,10 @@
 import { Component, AfterViewChecked, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import pagarme from 'pagarme/browser'
+
 
 import { CarrinhoDeComprasService } from './../carrinho-de-compras/carrinho-de-compras.service';
+import { CookieService } from 'ngx-cookie-service';
 
 declare let paypal: any;
 
@@ -33,7 +36,8 @@ export class PagamentoComponent implements AfterViewChecked {
 
   constructor(
     private http: HttpClient,
-    private carrinhoService: CarrinhoDeComprasService
+    private carrinhoService: CarrinhoDeComprasService,
+    private cookieService: CookieService
   ) { }
 
 
@@ -123,22 +127,39 @@ export class PagamentoComponent implements AfterViewChecked {
 
 
 
-  //Boleto Fácil
-  /*
+  //Boleto pagar.me
   addBoletoScript() {
-    this.addScript = true;
-    return new Promise((resolve, reject) => {
-      let scripttagElement = document.createElement('script');
-      scripttagElement.src = 'https://sandbox.boletobancario.com/boletofacil/wro/direct-checkout.min.js';
-      scripttagElement.onload = resolve;
-      document.body.appendChild(scripttagElement);
-    })
-  }
-  */
+    pagarme.client.connect({ api_key: 'ak_test_77BOmL1rQESkHJK8MwpDOmtO9ASGY8' })
+      .then(client => client.transactions.create({
+        amount: this.totalAmount*100,
+        payment_method: 'boleto',
+        postback_url: 'http://requestb.in/pkt7pgpk',
+        customer: {
+          type: 'individual',
+          country: 'br',
+          name: this.cookieService.get("nome"),   // 'Aardvark Silva',
+          documents: [
+            {
+              type: 'cpf',
+              number: this.cookieService.get("cpf"),
+            },
+          ],
+        },
+      }))
 
+
+  }
+
+
+  /*
   addBoletoScript(code) {
     this.http.post('https://sandbox.boletobancario.com/boletofacil/integration/button/checkout.html', code)
       .subscribe();
+  }
+  */
+
+  totalCompra(): number {
+    return this.totalAmount;
   }
 
 }

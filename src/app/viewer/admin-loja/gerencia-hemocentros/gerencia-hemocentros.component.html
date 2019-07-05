@@ -1,0 +1,125 @@
+<br>
+
+<div class="card">
+
+  <div class="card-header">
+
+    <div class="float-left">
+      <h4>Hemocentro</h4>
+    </div>
+
+    <div class="float-right">
+      <button (click)="openModal(template)" type="button" class="btn btn-primary">
+        <!-- Pendente, novo produto -->
+        Novo Hemocentro
+      </button>
+
+      <!-- Abre um pop-up modal para inserir um novo produto -->
+      <ng-template #template>
+
+        <div class="modal-body text-center">
+          <b>Criando novo hemocentro</b><br><br>
+          <!--<form #cadastraProduto="ngForm">-->
+
+          <!-- Nome -->
+          <input type="text" class="form-control" name="nome" id="nome" placeholder="Nome do produto"
+            [(ngModel)]="hemocentro.nome">
+
+          <br>
+
+          <!-- CNES -->
+          <input type="text" class="form-control" name="cnes" id="cnes" placeholder="CNES"
+            [(ngModel)]="hemocentro.cnes">
+
+          <br>
+
+          <!-- Email -->
+          <input type="number" class="form-control" name="email" id="email" placeholder="Email"
+            [(ngModel)]="hemocentro.email">
+
+          <br>
+
+          <!-- Senha -->
+          <input type="number" class="form-control" name="senha" id="senha" placeholder="Senha"
+            [(ngModel)]="hemocentro.senha">
+
+          <br>
+
+          <!-- Senha -->
+          <input type="number" class="form-control" name="senha" id="senha" placeholder="Senha"
+            [(ngModel)]="hemocentro.senha">
+
+          <br>
+
+
+
+          <button type="button" class="btn btn-default" (click)="cancelar()">Cancelar</button>
+          <button type="button" class="btn btn-primary" (click)="adicionarHemocentro()">Adicionar Hemocentro</button>
+
+          <!--</form>-->
+
+        </div>
+
+      </ng-template>
+
+    </div>
+
+  </div>
+
+
+
+  <!-- Tabela para listar os produtos -->
+  <div class="card-body">
+
+    <!--Só vai mostrar produtos caso exista produtos-->
+
+    <table id="hemocentros" class="table table-hover" *ngIf="hemocentros$ | async as hemocentros; else loadingError">
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>CNES</th>
+          <th>email</th>
+          <th>telefone</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <tr *ngFor="let hemocentro of hemocentros">
+          <td>{{ hemocentro.nome }}</td>
+          <td>{{ hemocentro.cnes }}</td>
+          <td>{{ hemocentro.email }}</td>
+          <td>{{ hemocentro.telefone }}</td>
+          <!--
+          <td>
+            <span class="float-right">
+              <button class="btn btn-outline-warning mb-1 btn-sm">
+                Atualizar
+              </button>
+              {{ '' }}
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="removerProduto(produto)">
+                Remover
+              </button>
+            </span>
+          </td>
+        -->
+        </tr>
+
+      </tbody>
+
+    </table>
+
+    <ng-template #loadingError>
+      <div *ngIf="error$ | async; else loading">
+        Erro ao carregar Hemocentros. Tente novamente mais tarde.
+      </div>
+      <ng-template #loading>
+        <span>Carregando Hemocentros...</span>
+      </ng-template>
+    </ng-template>
+
+
+  </div>
+
+</div>
