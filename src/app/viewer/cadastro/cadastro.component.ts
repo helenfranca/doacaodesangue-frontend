@@ -54,7 +54,7 @@ export class CadastroComponent implements OnInit {
 
         if (cadastroForm.value != null) {
           alert("Usuário cadastrado com sucesso!");
-          //window.location.href = "/login";
+          window.location.href = "/login";
         }
       });
   }

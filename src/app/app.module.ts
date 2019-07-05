@@ -48,6 +48,7 @@ import { Relatorio3Component } from "./viewer/relatorio/relatorio3/relatorio3.co
 import { Relatorio4Component } from "./viewer/relatorio/relatorio4/relatorio4.component";
 import { LoginComponent } from "./viewer/login/login.component";
 import { GerenciaHemocentrosComponent } from './viewer/admin-loja/gerencia-hemocentros/gerencia-hemocentros.component';
+import {NgxMaskModule} from 'ngx-mask'
 
 @NgModule({
   declarations: [
@@ -94,7 +95,8 @@ import { GerenciaHemocentrosComponent } from './viewer/admin-loja/gerencia-hemoc
     CarouselModule.forRoot(),
     StorageServiceModule,
     RelatorioModule,
-    BsDropdownModule.forRoot()
+    BsDropdownModule.forRoot(),
+    NgxMaskModule.forRoot({})
   ],
   providers: [
     AuthService,

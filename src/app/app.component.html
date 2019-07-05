@@ -14,13 +14,13 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto text-danger">
+      <!-- Tava aparecendo 'Teste 2', tirei
       <li class="nav-link">
-        <!-- Tava aparecendo 'Teste 2', tirei
         <a *ngIf="usuario_hemocentro && usuario_admin">{{
           usuario_hemocentro
-        }}</a>
-        -->
+        }}</a> 
       </li>
+      -->
       <li class="nav-link text-danger">
         <a *ngIf="usuario_nome != ''"> Bem vindo(a), {{ usuario_nome }} </a>
       </li>
@@ -48,7 +48,7 @@
 
     <!-- Nome do usuário -->
 
-    <!-- Implementando essa parte -->
+    <!-- Login -->
     <li class="nav-link text-danger" *ngIf="!user">
       <a [routerLink]="['/login']">Login</a>
     </li>

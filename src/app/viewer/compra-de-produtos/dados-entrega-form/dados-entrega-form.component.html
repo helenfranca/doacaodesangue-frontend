@@ -24,7 +24,8 @@
             <div class="form-group col-md-3">
               <label for="cep">CEP</label>
               <input type="text" class="form-control" name="cep" id="cep" placeholder="CEP" ngModel required
-                #cep="ngModel" (blur)="consultaCEP($event.target.value, entregaForm)">
+                #cep="ngModel" (blur)="consultaCEP($event.target.value, entregaForm)"
+                mask="00.000.000">
 
               <div *ngIf="!cep.valid && cep.touched" class="text-danger">
                 Por favor, informe o CEP.
