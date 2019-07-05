@@ -6,6 +6,7 @@ import { BsModalService, BsModalRef } from "ngx-bootstrap/modal";
 
 import { environment } from "src/environments/environment";
 import { Pessoa } from "src/app/model/pessoa";
+import { CookieService } from "ngx-cookie-service";
 
 @Component({
   selector: "app-confirmar-doacao",
@@ -29,8 +30,6 @@ export class ConfirmarDoacaoComponent implements OnInit {
     cpf: null
   };
 
-  cnes = 123;
-
   retorno: any = {};
   response: any = {};
   bla: any = {};
@@ -49,7 +48,8 @@ export class ConfirmarDoacaoComponent implements OnInit {
 
   constructor(
     private modalService: BsModalService,
-    private httpClient: HttpClient
+    private httpClient: HttpClient,
+    private cookieService: CookieService
   ) {}
 
   ngOnInit() {}
@@ -98,7 +98,7 @@ export class ConfirmarDoacaoComponent implements OnInit {
 
   async enviar() {
     this.body = this.confirmar;
-    this.body.cnes = this.cnes;
+    this.body.cnes = this.cookieService.get("cnes");
 
     this.httpClient
       .post(`${environment.API}` + "doacao", this.body)

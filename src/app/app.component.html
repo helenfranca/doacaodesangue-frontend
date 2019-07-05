@@ -11,12 +11,22 @@
     [routerLink]="['/']"
     >Tuntum</a
   >
-  <a
-    class="navbar-brand text-danger"
-    *ngIf="!usuario_admin && user"
-    [routerLink]="['/usuario']"
-    >Tuntum</a
+  <button
+    *ngIf="user || usuario_admin"
+    class="navbar-toggler"
+    type="button"
+    (click)="serviceApp.cha = !serviceApp.cha"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
   >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <a class="navbar-brand text-danger" *ngIf="!usuario_admin && user">Tuntum</a>
+  <!-- <button (click)="serviceApp.cha = !serviceApp.cha" class="btn btn-primary">
+    Teste
+  </button> -->
+
   <button
     class="navbar-toggler"
     type="button"

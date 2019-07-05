@@ -1,5 +1,5 @@
 <!-- <div class="container"> -->
-<div class="d-flex" id="wrapper">
+<div class="d-flex" [ngClass]="{ toggled: app.cha }" id="wrapper">
   <!-- Sidebar -->
   <div class="bg-light border-right" id="sidebar-wrapper">
     <!-- <div class="sidebar-heading">Meu teste</div> -->
@@ -21,23 +21,23 @@
         >Relatório</a
       >
 
-      <a 
-      *ngIf="opcao == 2"
-      (click)="opcao = 3"
-      class="list-group-item list-group-item-action bg-light"
-      >Demandas por hemocentro</a
+      <a
+        *ngIf="opcao == 2"
+        (click)="opcao = 3"
+        class="list-group-item list-group-item-action bg-light"
+        >Demandas por hemocentro</a
       >
-      <a 
-      *ngIf="opcao == 2"
-      (click)="opcao = 4"
-      class="list-group-item list-group-item-action bg-light"
-      >Qtd de doadores</a
+      <a
+        *ngIf="opcao == 2"
+        (click)="opcao = 4"
+        class="list-group-item list-group-item-action bg-light"
+        >Qtd de doadores</a
       >
-      <a 
-      *ngIf="opcao == 2"
-      (click)="opcao = 5"
-      class="list-group-item list-group-item-action bg-light"
-      >Qtd de demandas</a
+      <a
+        *ngIf="opcao == 2"
+        (click)="opcao = 5"
+        class="list-group-item list-group-item-action bg-light"
+        >Qtd de demandas</a
       >
     </div>
   </div>

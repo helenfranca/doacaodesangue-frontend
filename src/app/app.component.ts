@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { CookieService } from "ngx-cookie-service";
+import { AppService } from "./app.service";
 
 @Component({
   selector: "app-root",
@@ -11,7 +12,10 @@ export class AppComponent {
 
   user: boolean = false;
 
-  constructor(private serviceCookie: CookieService) {}
+  constructor(
+    private serviceCookie: CookieService,
+    private serviceApp: AppService
+  ) {}
   usuario_nome = "";
   usuario_admin;
   usuario_hemocentro;
@@ -29,4 +33,5 @@ export class AppComponent {
     this.serviceCookie.deleteAll();
     window.location.href = "/";
   }
+  cha = this.serviceApp.cha;
 }

@@ -62,6 +62,8 @@ export class DoadorFormComponent implements OnInit {
       alert("O seu cadastro de doador foi concluído com sucesso!");
     }
     this.enviar();
+
+    window.location.href = "/usuario";
   }
 
   justHide() {

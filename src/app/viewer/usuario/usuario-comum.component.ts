@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { environment } from "src/environments/environment";
 import { CookieService } from "ngx-cookie-service";
+import { AppService } from "src/app/app.service";
 
 @Component({
   selector: "app-usuario-comum",
@@ -9,7 +10,11 @@ import { CookieService } from "ngx-cookie-service";
   styleUrls: ["./usuario-comum.component.css"]
 })
 export class usuarioComumComponent implements OnInit {
-  constructor(private http: HttpClient, private cookieService: CookieService) {}
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService,
+    private app: AppService
+  ) {}
   pessoa: any;
   doador: any;
   a: any;
@@ -44,5 +49,7 @@ export class usuarioComumComponent implements OnInit {
           }
         }
       );
+    console.log(this.cha);
   }
+  cha = this.app.cha;
 }
